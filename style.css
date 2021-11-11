@@ -1,0 +1,370 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Heebo", sans-serif;
+  overflow-x: hidden;
+}
+
+section.profile {
+  position: static;
+}
+
+section.profile div.profile {
+  width: 100%;
+  height: 110vh;
+  position: relative;
+}
+
+section.profile div.profile img.profile-img {
+  width: 100%;
+  height: 110vh;
+  position: absolute;
+  top: 0;
+}
+
+section.profile div.profile div.mask {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 110vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+section.profile div.profile h1.greeting {
+  position: absolute;
+  top: 15rem;
+  right: 18rem;
+  color: #fbf3f2;
+  font-size: 4rem;
+  z-index: 3;
+  font-weight: 500;
+}
+
+section.navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fbf3f2;
+  -webkit-box-shadow: 0 4px 2px -2px gray;
+          box-shadow: 0 4px 2px -2px gray;
+}
+
+section.navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+section.navbar ul li {
+  list-style: none;
+}
+
+section.navbar ul li a {
+  color: #1c768f;
+  text-decoration: none;
+  margin: 1.5rem;
+  font-size: 1.5rem;
+}
+
+h2.section-title {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 500;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  color: #fbf3f2;
+}
+
+h3.middle-title {
+  color: #fbf3f2;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-left: 6rem;
+}
+
+h4.card-title {
+  color: #032539;
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+}
+
+div.card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 9.3vw;
+  margin-top: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+div.card {
+  background-color: #fbf3f2;
+  border-radius: 0.5rem;
+  margin: 0.5rem 1vw;
+}
+
+section.about-me {
+  background-color: #032539;
+  height: 27rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.about-me h2#about-me {
+  color: #fbf3f2;
+}
+
+section.about-me img {
+  width: 10rem;
+  border-radius: 10rem;
+  margin-bottom: 1.75rem;
+}
+
+section.about-me div.p-container {
+  width: 45%;
+  color: #fbf3f2;
+  text-align: center;
+}
+
+section.ability {
+  background-color: #fa991c;
+  height: 56rem;
+}
+
+section.ability h2#ability {
+  color: #fbf3f2;
+}
+
+section.ability div.card#learned {
+  width: 18vw;
+  height: 43vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.ability div.card#learned img#ability-1 {
+  width: 90%;
+  margin-top: 1rem;
+}
+
+section.ability div.card#learned img#ability-2,
+section.ability div.card#learned img#ability-3,
+section.ability div.card#learned img#ability-4 {
+  width: 95%;
+  margin-bottom: 0.5rem;
+}
+
+section.ability div.card#proficient {
+  width: 38vw;
+  height: 43vh;
+}
+
+section.ability div.card#proficient h4 {
+  margin-top: 1.25rem;
+}
+
+section.ability div.card#proficient div.card-content-container table {
+  margin: 1rem 1.2rem;
+}
+
+section.ability div.card#proficient div.card-content-container table td {
+  color: #1c768f;
+  padding: 0.4rem 0.5rem;
+}
+
+section.ability div.card#proficient div.card-content-container table td div.progress-bar {
+  width: 17rem;
+  height: 1.5rem;
+  background-color: rgba(28, 118, 143, 0.1);
+  border-radius: 0.3rem;
+}
+
+section.ability div.card#proficient div.card-content-container table td #len80 {
+  border-left: 13.6rem solid #1c768f;
+}
+
+section.ability div.card#proficient div.card-content-container table td #len70 {
+  border-left: 11.9rem solid #1c768f;
+}
+
+section.ability div.card#proficient div.card-content-container table td #len70-2 {
+  border-left: 10.5rem solid #1c768f;
+}
+
+section.ability div.card#proficient div.card-content-container table td #len65 {
+  border-left: 11.05rem solid #1c768f;
+}
+
+section.ability div.card#proficient div.card-content-container table td #len65-2 {
+  border-left: 9.75rem solid #1c768f;
+}
+
+section.ability div.card#proficient div.card-content-container table td #len60 {
+  border-left: 10.2rem solid #1c768f;
+}
+
+section.ability div.card#learning {
+  width: 24.65vw;
+  height: 3rem;
+}
+
+section.experience {
+  background-color: #032539;
+  height: 30vh;
+}
+
+section.works {
+  background-color: #fa991c;
+  height: 220vh;
+}
+
+section.works div.card-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section.works div.card-container div.card#working {
+  width: 38vw;
+  height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.works div.card-container div.card#completed1,
+section.works div.card-container div.card#completed2 {
+  width: 78vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0.25rem 0 0 1.5rem;
+}
+
+section.works div.card-container div.card#completed1 {
+  height: 40vh;
+}
+
+section.works div.card-container div.card#completed2 {
+  height: 63vh;
+}
+
+section.works div.card-container div.card-in-card-container {
+  margin-top: 0.5rem;
+}
+
+section.works div.card-container div.card-in-card-container div.card#paper {
+  background-color: #032539;
+  width: 72vw;
+  height: 13vh;
+  position: relative;
+  margin: 0.75rem;
+}
+
+section.works div.card-container div.card-in-card-container div.card#paper h4 {
+  color: #fbf3f2;
+  margin: 0.75rem 0 0 1rem;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+section.works div.card-container div.card-in-card-container div.card#paper p {
+  color: #fa991c;
+  margin-left: 1rem;
+}
+
+section.works div.card-container div.card-in-card-container div.card#paper a {
+  width: 1.5rem;
+  fill: #fbf3f2;
+  color: #fbf3f2;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+}
+
+section.footer {
+  background-color: #fbf3f2;
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.footer ul li {
+  list-style: none;
+}
+
+section.footer ul li a img.footer-icon {
+  width: 1.5rem;
+  margin: 1rem 1rem 0.75rem 1rem;
+}
+/*# sourceMappingURL=style.css.map */
