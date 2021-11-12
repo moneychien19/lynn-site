@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Heebo", sans-serif;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 $darkTheme: #032539;
@@ -15,28 +15,29 @@ section.profile {
   position: static;
   div.profile {
     width: 100%;
-    height: 110vh;
+    height: 90vh;
     position: relative;
+    overflow: hidden;
     img.profile-img {
-      width: 100%;
-      height: 110vh;
       position: absolute;
       top: 0;
+      max-width: 100%;
+      // max-height: 90vh;
     }
     div.mask {
       position: absolute;
       top: 0;
       width: 100%;
-      height: 110vh;
-      background-color: rgba(0, 0, 0, 0.6);
+      height: 90vh;
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 2;
     }
     h1.greeting {
       position: absolute;
       top: 15rem;
-      right: 18rem;
+      left: 14rem;
       color: $whiteTheme;
-      font-size: 4rem;
+      font-size: 3.5rem;
       z-index: 3;
       font-weight: 500;
     }
@@ -47,12 +48,17 @@ section.navbar {
   position: sticky;
   top: 0;
   padding: 1rem;
-  height: 4rem;
+  height: 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: $whiteTheme;
   box-shadow: 0 4px 2px -2px gray;
+  div.navbar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   ul {
     display: flex;
     li {
@@ -60,8 +66,8 @@ section.navbar {
       a {
         color: $lightTheme;
         text-decoration: none;
-        margin: 1.5rem;
-        font-size: 1.5rem;
+        margin: 1.25rem;
+        font-size: 1.25rem;
       }
     }
   }
@@ -106,9 +112,7 @@ section.about-me {
   display: flex;
   flex-direction: column;
   align-items: center;
-  h2#about-me {
-    color: $whiteTheme;
-  }
+
   img {
     width: 10rem;
     border-radius: 10rem;
@@ -199,7 +203,6 @@ section.works {
   background-color: $orangeTheme;
   height: 220vh;
   div.card-container {
-    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -209,6 +212,7 @@ section.works {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 1rem;
     }
     div.card#completed1,
     div.card#completed2 {
@@ -226,13 +230,16 @@ section.works {
       height: 63vh;
     }
     div.card-in-card-container {
-      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0.25rem;
       div.card#paper {
         background-color: $darkTheme;
         width: 72vw;
         height: 13vh;
         position: relative;
-        margin: 0.75rem;
+        margin-bottom: 0.25rem;
         h4 {
           color: $whiteTheme;
           margin: 0.75rem 0 0 1rem;
@@ -245,11 +252,13 @@ section.works {
         }
         a {
           width: 1.5rem;
-          fill: $whiteTheme;
-          color: $whiteTheme;
           position: absolute;
-          bottom: 0.5rem;
-          right: 1rem;
+          bottom: 0.75rem;
+          right: 1.1rem;
+          i {
+            color: $whiteTheme;
+            font-size: 1.5rem;
+          }
         }
       }
     }
@@ -257,7 +266,7 @@ section.works {
 }
 
 section.footer {
-  background-color: $whiteTheme;
+  background-color: $darkTheme;
   height: 4rem;
   display: flex;
   flex-direction: column;
@@ -265,12 +274,14 @@ section.footer {
   ul {
     display: flex;
     align-items: center;
+    margin-top: 0.25rem;
     li {
       list-style: none;
       a {
-        img.footer-icon {
-          width: 1.5rem;
-          margin: 1rem 1rem 0.75rem 1rem;
+        i {
+          margin: 1rem;
+          color: $whiteTheme;
+          font-size: 1.5rem;
         }
       }
     }

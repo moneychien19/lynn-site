@@ -8,6 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Heebo&display=swap"
       rel="stylesheet"
     />
@@ -16,20 +23,20 @@
   <body>
     <section class="profile">
       <div class="profile">
-        <img
-          class="profile-img"
-          src="./images/profile_background.jfif"
-          alt=""
-        />
+        <img class="profile-img" src="./images/profile_background.jpg" alt="" />
         <div class="mask"></div>
         <h1 class="greeting">Hi, I'm Lynn.</h1>
       </div>
     </section>
     <section class="navbar">
-      <ul>
-        <li><a href="#" class="navbar-link">About Me</a></li>
-        <li><a href="#" class="navbar-link">Experience</a></li>
-      </ul>
+      <div class="navbar-container">
+        <ul>
+          <li><a href="#" class="navbar-link">About Me</a></li>
+          <li><a href="#" class="navbar-link">Ability</a></li>
+          <li><a href="#" class="navbar-link">Experience</a></li>
+          <li><a href="#" class="navbar-link">Works</a></li>
+        </ul>
+      </div>
     </section>
     <section class="about-me">
       <h2 class="section-title" id="about-me">About Me</h2>
@@ -67,7 +74,7 @@
         </div>
       </div>
 
-      <h3 class="middle-title">What I'm Proficient...</h3>
+      <h3 class="middle-title">What I'm Proficient In...</h3>
       <div class="card-container">
         <div class="card" id="proficient">
           <h4 class="card-title">前端工程</h4>
@@ -147,7 +154,7 @@
 
     <section class="works">
       <h2 class="section-title" id="works">Works</h2>
-      <h3 class="middle-title">Still Working...</h3>
+      <h3 class="middle-title">Still Working On...</h3>
       <div class="card-container">
         <div class="card" id="working">
           <h4 class="card-title">網路服務程式設計專案</h4>
@@ -166,7 +173,6 @@
           <p>Python, SQL, C#</p>
         </div>
       </div>
-      <br />
       <h3 class="middle-title">Completed...</h3>
       <div class="card-container">
         <div class="card" id="completed1">
@@ -185,14 +191,14 @@
               <p>
                 #fertility #education #income #Second_Demographic_Transition
               </p>
-              <a href=""><img src="./images/works_icon.svg" alt="" /></a>
+              <a href=""><i class="fas fa-download"></i></a>
             </div>
             <div class="card" id="paper">
               <h4>
                 The Effect of Income and Education on Support for Democracy
               </h4>
               <p>#democracy #income #education #Asian_countries</p>
-              <a href=""><img src="./images/works_icon.svg" alt="" /></a>
+              <a href=""><i class="fas fa-download"></i></a>
             </div>
             <div class="card" id="paper">
               <h4>
@@ -200,7 +206,7 @@
                 Channel
               </h4>
               <p>#BOPS #retailer #coopetition #model</p>
-              <a href=""><img src="./images/works_icon.svg" alt="" /></a>
+              <a href=""><i class="fas fa-download"></i></a>
             </div>
           </div>
         </div>
@@ -210,19 +216,13 @@
     <section class="footer">
       <ul>
         <li>
-          <a href="#"
-            ><img class="footer-icon" src="./images/footer_icon1.svg" alt=""
-          /></a>
+          <a href=""><i class="far fa-address-card"></i></a>
         </li>
         <li>
-          <a href="#"
-            ><img class="footer-icon" src="./images/footer_icon2.svg" alt=""
-          /></a>
+          <a href="#"><i class="fab fa-github"></i></a>
         </li>
         <li>
-          <a href="#"
-            ><img class="footer-icon" src="./images/footer_icon3.svg" alt=""
-          /></a>
+          <a href="#"><i class="far fa-envelope"></i></a>
         </li>
       </ul>
     </section>
