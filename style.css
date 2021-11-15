@@ -4,26 +4,28 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Heebo", sans-serif;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3.5rem;
 }
 
-section.profile {
+section#profile {
   position: static;
 }
 
-section.profile div.profile {
+section#profile div.profile {
   width: 100%;
   height: 90vh;
   position: relative;
   overflow: hidden;
 }
 
-section.profile div.profile img.profile-img {
+section#profile div.profile img.profile-img {
   position: absolute;
   top: 0;
   max-width: 100%;
 }
 
-section.profile div.profile div.mask {
+section#profile div.profile div.mask {
   position: absolute;
   top: 0;
   width: 100%;
@@ -32,7 +34,7 @@ section.profile div.profile div.mask {
   z-index: 2;
 }
 
-section.profile div.profile h1.greeting {
+section#profile div.profile h1.greeting {
   position: absolute;
   top: 15rem;
   left: 14rem;
@@ -42,11 +44,10 @@ section.profile div.profile h1.greeting {
   font-weight: 500;
 }
 
-section.navbar {
+section#navbar {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  padding: 1rem;
   height: 3.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,7 +64,7 @@ section.navbar {
           box-shadow: 0 4px 2px -2px gray;
 }
 
-section.navbar div.navbar-container {
+section#navbar div.navbar-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,21 +77,38 @@ section.navbar div.navbar-container {
           align-items: center;
 }
 
-section.navbar ul {
+section#navbar ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 3.5rem;
 }
 
-section.navbar ul li {
+section#navbar ul li {
   list-style: none;
+  padding-top: 0.8rem;
 }
 
-section.navbar ul li a {
+section#navbar ul li a {
   color: #1c768f;
   text-decoration: none;
   margin: 1.25rem;
   font-size: 1.25rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1c768f), to(#1c768f));
+  background-image: linear-gradient(#1c768f, #1c768f);
+  background-position: left bottom;
+  background-size: 0 0.2rem;
+  background-repeat: no-repeat;
+  -webkit-transition: background-size 0.25s linear;
+  transition: background-size 0.25s linear;
+}
+
+section#navbar ul li a:hover {
+  background-size: 100% 0.2rem;
+}
+
+section#navbar ul li a.active {
+  background-size: 100% 0.2rem;
 }
 
 h2.section-title {
@@ -131,7 +149,7 @@ div.card {
   margin: 0.5rem 1vw;
 }
 
-section.about-me {
+section#about-me {
   background-color: #032539;
   height: 27rem;
   display: -webkit-box;
@@ -146,28 +164,28 @@ section.about-me {
           align-items: center;
 }
 
-section.about-me img {
+section#about-me img {
   width: 10rem;
   border-radius: 10rem;
   margin-bottom: 1.75rem;
 }
 
-section.about-me div.p-container {
+section#about-me div.p-container {
   width: 45%;
   color: #fbf3f2;
   text-align: center;
 }
 
-section.ability {
+section#ability {
   background-color: #fa991c;
   height: 56rem;
 }
 
-section.ability h2#ability {
+section#ability h2#ability {
   color: #fbf3f2;
 }
 
-section.ability div.card#learned {
+section#ability div.card#learned {
   width: 18vw;
   height: 43vh;
   display: -webkit-box;
@@ -182,83 +200,83 @@ section.ability div.card#learned {
           align-items: center;
 }
 
-section.ability div.card#learned img#ability-1 {
+section#ability div.card#learned img#ability-1 {
   width: 90%;
   margin-top: 1rem;
 }
 
-section.ability div.card#learned img#ability-2,
-section.ability div.card#learned img#ability-3,
-section.ability div.card#learned img#ability-4 {
+section#ability div.card#learned img#ability-2,
+section#ability div.card#learned img#ability-3,
+section#ability div.card#learned img#ability-4 {
   width: 95%;
   margin-bottom: 0.5rem;
 }
 
-section.ability div.card#proficient {
+section#ability div.card#proficient {
   width: 38vw;
   height: 43vh;
 }
 
-section.ability div.card#proficient h4 {
+section#ability div.card#proficient h4 {
   margin-top: 1.25rem;
 }
 
-section.ability div.card#proficient div.card-content-container table {
+section#ability div.card#proficient div.card-content-container table {
   margin: 1rem 1.2rem;
 }
 
-section.ability div.card#proficient div.card-content-container table td {
+section#ability div.card#proficient div.card-content-container table td {
   color: #1c768f;
   padding: 0.4rem 0.5rem;
 }
 
-section.ability div.card#proficient div.card-content-container table td div.progress-bar {
+section#ability div.card#proficient div.card-content-container table td div.progress-bar {
   width: 17rem;
   height: 1.5rem;
   background-color: rgba(28, 118, 143, 0.1);
   border-radius: 0.3rem;
 }
 
-section.ability div.card#proficient div.card-content-container table td #len80 {
+section#ability div.card#proficient div.card-content-container table td #len80 {
   border-left: 13.6rem solid #1c768f;
 }
 
-section.ability div.card#proficient div.card-content-container table td #len70 {
+section#ability div.card#proficient div.card-content-container table td #len70 {
   border-left: 11.9rem solid #1c768f;
 }
 
-section.ability div.card#proficient div.card-content-container table td #len70-2 {
+section#ability div.card#proficient div.card-content-container table td #len70-2 {
   border-left: 10.5rem solid #1c768f;
 }
 
-section.ability div.card#proficient div.card-content-container table td #len65 {
+section#ability div.card#proficient div.card-content-container table td #len65 {
   border-left: 11.05rem solid #1c768f;
 }
 
-section.ability div.card#proficient div.card-content-container table td #len65-2 {
+section#ability div.card#proficient div.card-content-container table td #len65-2 {
   border-left: 9.75rem solid #1c768f;
 }
 
-section.ability div.card#proficient div.card-content-container table td #len60 {
+section#ability div.card#proficient div.card-content-container table td #len60 {
   border-left: 10.2rem solid #1c768f;
 }
 
-section.ability div.card#learning {
+section#ability div.card#learning {
   width: 24.65vw;
   height: 3rem;
 }
 
-section.experience {
+section#experience {
   background-color: #032539;
   height: 30vh;
 }
 
-section.works {
+section#works {
   background-color: #fa991c;
   height: 220vh;
 }
 
-section.works div.card-container {
+section#works div.card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -270,7 +288,7 @@ section.works div.card-container {
       flex-wrap: wrap;
 }
 
-section.works div.card-container div.card#working {
+section#works div.card-container div.card#working {
   width: 38vw;
   height: 30vh;
   display: -webkit-box;
@@ -286,8 +304,8 @@ section.works div.card-container div.card#working {
   margin-bottom: 1rem;
 }
 
-section.works div.card-container div.card#completed1,
-section.works div.card-container div.card#completed2 {
+section#works div.card-container div.card#completed1,
+section#works div.card-container div.card#completed2 {
   width: 78vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -302,15 +320,15 @@ section.works div.card-container div.card#completed2 {
   padding: 0.25rem 0 0 1.5rem;
 }
 
-section.works div.card-container div.card#completed1 {
+section#works div.card-container div.card#completed1 {
   height: 40vh;
 }
 
-section.works div.card-container div.card#completed2 {
+section#works div.card-container div.card#completed2 {
   height: 63vh;
 }
 
-section.works div.card-container div.card-in-card-container {
+section#works div.card-container div.card-in-card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,7 +342,7 @@ section.works div.card-container div.card-in-card-container {
   margin-top: 0.25rem;
 }
 
-section.works div.card-container div.card-in-card-container div.card#paper {
+section#works div.card-container div.card-in-card-container div.card#paper {
   background-color: #032539;
   width: 72vw;
   height: 13vh;
@@ -332,31 +350,31 @@ section.works div.card-container div.card-in-card-container div.card#paper {
   margin-bottom: 0.25rem;
 }
 
-section.works div.card-container div.card-in-card-container div.card#paper h4 {
+section#works div.card-container div.card-in-card-container div.card#paper h4 {
   color: #fbf3f2;
   margin: 0.75rem 0 0 1rem;
   font-weight: 500;
   font-size: 1.2rem;
 }
 
-section.works div.card-container div.card-in-card-container div.card#paper p {
+section#works div.card-container div.card-in-card-container div.card#paper p {
   color: #fa991c;
   margin-left: 1rem;
 }
 
-section.works div.card-container div.card-in-card-container div.card#paper a {
+section#works div.card-container div.card-in-card-container div.card#paper a {
   width: 1.5rem;
   position: absolute;
   bottom: 0.75rem;
   right: 1.1rem;
 }
 
-section.works div.card-container div.card-in-card-container div.card#paper a i {
+section#works div.card-container div.card-in-card-container div.card#paper a i {
   color: #fbf3f2;
   font-size: 1.5rem;
 }
 
-section.footer {
+section#footer {
   background-color: #032539;
   height: 4rem;
   display: -webkit-box;
@@ -371,7 +389,7 @@ section.footer {
           align-items: center;
 }
 
-section.footer ul {
+section#footer ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -381,11 +399,11 @@ section.footer ul {
   margin-top: 0.25rem;
 }
 
-section.footer ul li {
+section#footer ul li {
   list-style: none;
 }
 
-section.footer ul li a i {
+section#footer ul li a i {
   margin: 1rem;
   color: #fbf3f2;
   font-size: 1.5rem;

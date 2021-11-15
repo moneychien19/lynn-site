@@ -21,24 +21,26 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <section class="profile">
+    <section id="profile">
       <div class="profile">
         <img class="profile-img" src="./images/profile_background.jpg" alt="" />
         <div class="mask"></div>
         <h1 class="greeting">Hi, I'm Lynn.</h1>
       </div>
     </section>
-    <section class="navbar">
+    <section id="navbar">
       <div class="navbar-container">
         <ul>
-          <li><a href="#" class="navbar-link">About Me</a></li>
-          <li><a href="#" class="navbar-link">Ability</a></li>
-          <li><a href="#" class="navbar-link">Experience</a></li>
-          <li><a href="#" class="navbar-link">Works</a></li>
+          <li><a href="#about-me" class="navbar-link" id="1">About Me</a></li>
+          <li><a href="#ability" class="navbar-link" id="2">Ability</a></li>
+          <li>
+            <a href="#experience" class="navbar-link" id="3">Experience</a>
+          </li>
+          <li><a href="#works" class="navbar-link" id="4">Works</a></li>
         </ul>
       </div>
     </section>
-    <section class="about-me">
+    <section id="about-me">
       <h2 class="section-title" id="about-me">About Me</h2>
       <img src="./images/profile_img.jpg" alt="" class="head" />
       <div class="p-container">
@@ -51,7 +53,7 @@
         </p>
       </div>
     </section>
-    <section class="ability">
+    <section id="ability">
       <h2 class="section-title" id="ability">Ability</h2>
 
       <h3 class="middle-title">What I've Learned...</h3>
@@ -148,11 +150,11 @@
       </div>
     </section>
 
-    <section class="experience">
+    <section id="experience">
       <h2 class="section-title" id="experience">Experience</h2>
     </section>
 
-    <section class="works">
+    <section id="works">
       <h2 class="section-title" id="works">Works</h2>
       <h3 class="middle-title">Still Working On...</h3>
       <div class="card-container">
@@ -191,14 +193,22 @@
               <p>
                 #fertility #education #income #Second_Demographic_Transition
               </p>
-              <a href=""><i class="fas fa-download"></i></a>
+              <a
+                href="./The Relationship between Female Education and Fertility Rate in European Countries.pdf"
+                target="_blank"
+                ><i class="fas fa-download"></i
+              ></a>
             </div>
             <div class="card" id="paper">
               <h4>
                 The Effect of Income and Education on Support for Democracy
               </h4>
               <p>#democracy #income #education #Asian_countries</p>
-              <a href=""><i class="fas fa-download"></i></a>
+              <a
+                href="./The Effect of Income and Education on Support for Democracy.pdf"
+                target="_blank"
+                ><i class="fas fa-download"></i
+              ></a>
             </div>
             <div class="card" id="paper">
               <h4>
@@ -206,25 +216,36 @@
                 Channel
               </h4>
               <p>#BOPS #retailer #coopetition #model</p>
-              <a href=""><i class="fas fa-download"></i></a>
+              <a
+                href="./Coopetition between Online and Physical Retailer under BOPS Channel.pdf"
+                target="_blank"
+                ><i class="fas fa-download"></i
+              ></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="footer">
+    <section id="footer">
       <ul>
         <li>
-          <a href=""><i class="far fa-address-card"></i></a>
+          <a href="./前端實習履歷.pdf" target="_blank"
+            ><i class="far fa-address-card"></i
+          ></a>
         </li>
         <li>
-          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="https://github.com/moneychien19" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
         </li>
         <li>
-          <a href="#"><i class="far fa-envelope"></i></a>
+          <a href="mailto: moneychien.aom@gmail.com" target="_blank"
+            ><i class="far fa-envelope"></i
+          ></a>
         </li>
       </ul>
     </section>
   </body>
+  <script src="./main.js"></script>
 </html>
