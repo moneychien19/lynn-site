@@ -23,14 +23,13 @@ section#profile {
       position: absolute;
       top: 0;
       max-width: 100%;
-      // max-height: 90vh;
     }
     div.mask {
       position: absolute;
       top: 0;
       width: 100%;
       height: 90vh;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       z-index: 2;
     }
     h1.greeting {
@@ -105,6 +104,7 @@ h4.card-title {
   color: $darkTheme;
   text-align: center;
   margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
   font-size: 1.25rem;
 }
 
@@ -133,7 +133,7 @@ section#about-me {
     margin-bottom: 1.75rem;
   }
   div.p-container {
-    width: 45%;
+    width: 42%;
     color: $whiteTheme;
     text-align: center;
   }
@@ -141,65 +141,20 @@ section#about-me {
 
 section#ability {
   background-color: $orangeTheme;
-  height: 56rem;
+  height: 33rem;
   h2#ability {
     color: $whiteTheme;
   }
   div.card#learned {
-    width: 18vw;
-    height: 43vh;
+    width: 24.65vw;
+    height: 38vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    img#ability-1 {
-      width: 90%;
-      margin-top: 1rem;
-    }
-    img#ability-2,
-    img#ability-3,
-    img#ability-4 {
-      width: 95%;
-      margin-bottom: 0.5rem;
-    }
-  }
-  div.card#proficient {
-    width: 38vw;
-    height: 43vh;
-    h4 {
-      margin-top: 1.25rem;
-    }
-    div.card-content-container {
-      table {
-        margin: 1rem 1.2rem;
-        td {
-          color: $lightTheme;
-          padding: 0.4rem 0.5rem;
-          div.progress-bar {
-            width: 17rem;
-            height: 1.5rem;
-            background-color: rgba(28, 118, 143, 0.1);
-            border-radius: 0.3rem;
-          }
-          #len80 {
-            border-left: 13.6rem solid $lightTheme;
-          }
-          #len70 {
-            border-left: 11.9rem solid $lightTheme;
-          }
-          #len70-2 {
-            border-left: 10.5rem solid $lightTheme;
-          }
-          #len65 {
-            border-left: 11.05rem solid $lightTheme;
-          }
-          #len65-2 {
-            border-left: 9.75rem solid $lightTheme;
-          }
-          #len60 {
-            border-left: 10.2rem solid $lightTheme;
-          }
-        }
-      }
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
   div.card#learning {
@@ -210,24 +165,11 @@ section#ability {
 
 section#experience {
   background-color: $darkTheme;
-  height: 30vh;
-}
-
-section#works {
-  background-color: $orangeTheme;
-  height: 220vh;
+  height: 500vh;
   div.card-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    div.card#working {
-      width: 38vw;
-      height: 30vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
     div.card#completed1,
     div.card#completed2 {
       width: 78vw;
@@ -235,10 +177,19 @@ section#works {
       flex-direction: column;
       align-items: flex-start;
       padding: 0.25rem 0 0 1.5rem;
+      div.content-row {
+        display: flex;
+      }
+      div.content-card {
+        margin: 0 0.5rem;
+      }
+      div.content {
+        margin: 0 0.5rem;
+      }
     }
 
     div.card#completed1 {
-      height: 40vh;
+      height: 135vh;
     }
     div.card#completed2 {
       height: 63vh;
@@ -280,7 +231,7 @@ section#works {
 }
 
 section#footer {
-  background-color: $darkTheme;
+  background-color: $orangeTheme;
   height: 4rem;
   display: flex;
   flex-direction: column;

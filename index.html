@@ -23,7 +23,7 @@
   <body>
     <section id="profile">
       <div class="profile">
-        <img class="profile-img" src="./images/profile_background.jpg" alt="" />
+        <img class="profile-img" src="./src/profile_background.jpg" alt="" />
         <div class="mask"></div>
         <h1 class="greeting">Hi, I'm Lynn.</h1>
       </div>
@@ -42,107 +42,59 @@
     </section>
     <section id="about-me">
       <h2 class="section-title" id="about-me">About Me</h2>
-      <img src="./images/profile_img.jpg" alt="" class="head" />
+      <img src="./src/profile_img.jpg" alt="" class="head" />
       <div class="p-container">
         <p id="about-me">
-          我目前就讀於台大經濟系，曾經接觸過許多不同的程式語言，其中我對前端建置最有興趣，熟悉前端語言HTML
-          + CSS +
-          JavaScript，也會使用React前端框架。除此之外我還擅長Python、C++、SQL，了解網站的架構及基礎演算法。
+          我是 Lynn，目前正朝前端工程師之路邁進。
           <br />
-          我曾在不同的專案中有團隊合作的經驗，懂得Git版本控制的應用。團隊合作能激發我的創意，希望未來也能與充滿活力的團隊共同成長。
+          我熟悉前端語言 HTML + CSS + JavaScript 及 React
+          前端框架。除此之外我還擅長 SQL 和 NoSQL 語法，並持續精進後端技術。
+          <br />
+          我曾在不同的專案中有團隊合作的經驗，懂得 Git
+          版本控制的應用，我認為團隊合作能激發我的創意，希望未來也能與充滿活力的團隊共同成長。
         </p>
       </div>
     </section>
     <section id="ability">
       <h2 class="section-title" id="ability">Ability</h2>
-
-      <h3 class="middle-title">What I've Learned...</h3>
       <div class="card-container">
         <div class="card" id="learned">
-          <h4 class="card-title">經濟學、統計學</h4>
-          <img id="ability-1" src="./images/ability_icon1.svg" alt="" />
+          <h4 class="card-title">語言</h4>
+          <p>HTML</p>
+          <p>CSS (SCSS)</p>
+          <p>Javascript ES6</p>
+          <p>Python</p>
+          <p>PostgreSQL</p>
+          <p>MongoDB</p>
+          <p>GraphQL</p>
         </div>
         <div class="card" id="learned">
-          <h4 class="card-title">程式設計</h4>
-          <img id="ability-2" src="./images/ability_icon2.svg" alt="" />
+          <h4 class="card-title">框架 / 套件</h4>
+          <p>React.js</p>
+          <p>React Router</p>
+          <p>Apollo</p>
+          <p>Material UI</p>
+          <p>antd</p>
+          <p>Node.js</p>
+          <p>Express</p>
         </div>
         <div class="card" id="learned">
-          <h4 class="card-title">前端工程</h4>
-          <img id="ability-3" src="./images/ability_icon3.svg" alt="" />
-        </div>
-        <div class="card" id="learned">
-          <h4 class="card-title">統計分析</h4>
-          <img id="ability-4" src="./images/ability_icon4.svg" alt="" />
+          <h4 class="card-title">工具</h4>
+          <p>Git / GitHub</p>
+          <p>npm / yarn</p>
+          <p>Figma</p>
+          <p>AWS RDS</p>
+          <p>MongoDB Atlas</p>
         </div>
       </div>
 
-      <h3 class="middle-title">What I'm Proficient In...</h3>
-      <div class="card-container">
-        <div class="card" id="proficient">
-          <h4 class="card-title">前端工程</h4>
-          <div class="card-content-container">
-            <table>
-              <tr>
-                <td>HTML</td>
-                <td><div class="progress-bar" id="len80"></div></td>
-                <td>80%</td>
-              </tr>
-              <tr>
-                <td>CSS / SCSS</td>
-                <td><div class="progress-bar" id="len80"></div></td>
-                <td>80%</td>
-              </tr>
-              <tr>
-                <td>JavaScript</td>
-                <td><div class="progress-bar" id="len70"></div></td>
-                <td>70%</td>
-              </tr>
-              <tr>
-                <td>React.js</td>
-                <td><div class="progress-bar" id="len60"></div></td>
-                <td>60%</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="card" id="proficient">
-          <h4 class="card-title">統計分析</h4>
-          <div class="card-content-container">
-            <table>
-              <tr>
-                <td>Python 資料處理</td>
-                <td>
-                  <div
-                    class="progress-bar"
-                    id="len65-2"
-                    style="width: 15rem"
-                  ></div>
-                </td>
-                <td>65%</td>
-              </tr>
-              <tr>
-                <td>STATA 統計分析</td>
-                <td>
-                  <div
-                    class="progress-bar"
-                    id="len70-2"
-                    style="width: 15rem"
-                  ></div>
-                </td>
-                <td>70%</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="middle-title">What I'm Still Learning...</h3>
+      <h3 class="middle-title">and I'm still learning...</h3>
       <div class="card-container">
         <div class="card" id="learning">
           <h4 class="card-title">後端工程</h4>
         </div>
         <div class="card" id="learning">
-          <h4 class="card-title">機器學習</h4>
+          <h4 class="card-title">網站部署</h4>
         </div>
         <div class="card" id="learning">
           <h4 class="card-title">UI/UX Design</h4>
@@ -152,75 +104,72 @@
 
     <section id="experience">
       <h2 class="section-title" id="experience">Experience</h2>
-    </section>
-
-    <section id="works">
-      <h2 class="section-title" id="works">Works</h2>
-      <h3 class="middle-title">Still Working On...</h3>
-      <div class="card-container">
-        <div class="card" id="working">
-          <h4 class="card-title">網路服務程式設計專案</h4>
-          <p>HTML, CSS, JavaScript, React, Node</p>
-        </div>
-        <div class="card" id="working">
-          <h4 class="card-title">統計學習與深度學習專案</h4>
-          <p>Python</p>
-        </div>
-        <div class="card" id="working">
-          <h4 class="card-title">資料科學與社會研究專案</h4>
-          <p>Python</p>
-        </div>
-        <div class="card" id="working">
-          <h4 class="card-title">生活工場產學合作專案</h4>
-          <p>Python, SQL, C#</p>
-        </div>
-      </div>
-      <h3 class="middle-title">Completed...</h3>
       <div class="card-container">
         <div class="card" id="completed1">
-          <h4 class="card-title">Around Home | 關心你住處附近的環境品質！</h4>
+          <h4 class="card-title">全端開發 | 管好你的事</h4>
           <p>前端網頁設計與開發、串接後端API</p>
         </div>
-        <div class="card larger" id="completed2">
-          <h4 class="card-title">學術論文撰寫</h4>
-          <p>於學期間完成兩篇經濟學相關及一篇銷售通路相關之論文</p>
-          <div class="card-in-card-container">
-            <div class="card" id="paper">
-              <h4>
-                The Relationship between Female Education and Fertility Rate in
-                European Countries
-              </h4>
+        <div class="card" id="completed1">
+          <h4 class="card-title">前端開發 | Around Home</h4>
+          <div class="content-row">
+            <div class="content-card">
               <p>
-                #fertility #education #income #Second_Demographic_Transition
+                在選擇住處時，會注意哪些地方呢？
+                <br />
+                現行租屋網站幾乎都以提供大眾運輸工具及公共設施點位為主，這些資訊可能已經足夠，然而也有這種案例：入住後發現住家附近的自行車竊案頻傳、或是發現作息時間和垃圾車經過的時間不符合...。
+                <br />
+                Around Home
+                整合環保署及政府資料開放平台中關於治安、環保及環境指標的相關資訊，讓使用者能輕易查詢住家附近的資訊，找到更安全、更舒適的家。
               </p>
-              <a
-                href="./The Relationship between Female Education and Fertility Rate in European Countries.pdf"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
+              <br />
+              <ul style="margin-left: 1.5rem">
+                <li>
+                  使用 Figma 進行使用者介面設計，並用 JSX + CSS（SCSS
+                  預處理器）實作
+                </li>
+                <li>使用 React 前端框架開發並串接後端 API</li>
+                <li>
+                  串接 Google Maps API 以進行地圖的顯示及地址和經緯度之間的轉換
+                </li>
+              </ul>
+              <br /><br />
+              <p>
+                GitHub repo:
+                <a
+                  href="https://github.com/moneychien19/Around-Home-local.git"
+                  style="color: #fa991c"
+                  >https://github.com/moneychien19/Around-Home-local.git</a
+                >
+              </p>
             </div>
-            <div class="card" id="paper">
-              <h4>
-                The Effect of Income and Education on Support for Democracy
-              </h4>
-              <p>#democracy #income #education #Asian_countries</p>
-              <a
-                href="./The Effect of Income and Education on Support for Democracy.pdf"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
-            </div>
-            <div class="card" id="paper">
-              <h4>
-                Coopetition between Online and Physical Retailer under BOPS
-                Channel
-              </h4>
-              <p>#BOPS #retailer #coopetition #model</p>
-              <a
-                href="./Coopetition between Online and Physical Retailer under BOPS Channel.pdf"
-                target="_blank"
-                ><i class="fas fa-download"></i
-              ></a>
+
+            <div class="content-card">
+              <div class="content-row">
+                <div class="content">
+                  <p>輸入欲查詢地址、選擇想知道的資訊</p>
+                  <img src="src/aroundhome-1.png" width="550px" />
+                </div>
+              </div>
+              <br />
+              <div class="content-row">
+                <div class="content">
+                  <p>將滑鼠靠近地圖上的圖針，獲取更多詳細資訊</p>
+                  <img src="src/aroundhome-2.png" width="195px" />
+                </div>
+                <div class="content">
+                  <p>
+                    按下查詢結果左側的小圖針，使地圖上關於這一個子項目的圖針消失或出現
+                  </p>
+                  <video
+                    src="src/aroundhome-3.mp4"
+                    type="video/mp4"
+                    width="345px"
+                    autoplay
+                    muted
+                    loop
+                  ></video>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -230,7 +179,7 @@
     <section id="footer">
       <ul>
         <li>
-          <a href="./前端實習履歷.pdf" target="_blank"
+          <a href="./src/前端實習履歷.pdf" target="_blank"
             ><i class="far fa-address-card"></i
           ></a>
         </li>

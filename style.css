@@ -30,7 +30,7 @@ section#profile div.profile div.mask {
   top: 0;
   width: 100%;
   height: 90vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 2;
 }
 
@@ -131,6 +131,7 @@ h4.card-title {
   color: #032539;
   text-align: center;
   margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
   font-size: 1.25rem;
 }
 
@@ -171,14 +172,14 @@ section#about-me img {
 }
 
 section#about-me div.p-container {
-  width: 45%;
+  width: 42%;
   color: #fbf3f2;
   text-align: center;
 }
 
 section#ability {
   background-color: #fa991c;
-  height: 56rem;
+  height: 33rem;
 }
 
 section#ability h2#ability {
@@ -186,8 +187,8 @@ section#ability h2#ability {
 }
 
 section#ability div.card#learned {
-  width: 18vw;
-  height: 43vh;
+  width: 24.65vw;
+  height: 38vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,65 +201,17 @@ section#ability div.card#learned {
           align-items: center;
 }
 
-section#ability div.card#learned img#ability-1 {
-  width: 90%;
-  margin-top: 1rem;
-}
-
-section#ability div.card#learned img#ability-2,
-section#ability div.card#learned img#ability-3,
-section#ability div.card#learned img#ability-4 {
-  width: 95%;
-  margin-bottom: 0.5rem;
-}
-
-section#ability div.card#proficient {
-  width: 38vw;
-  height: 43vh;
-}
-
-section#ability div.card#proficient h4 {
-  margin-top: 1.25rem;
-}
-
-section#ability div.card#proficient div.card-content-container table {
-  margin: 1rem 1.2rem;
-}
-
-section#ability div.card#proficient div.card-content-container table td {
-  color: #1c768f;
-  padding: 0.4rem 0.5rem;
-}
-
-section#ability div.card#proficient div.card-content-container table td div.progress-bar {
-  width: 17rem;
-  height: 1.5rem;
-  background-color: rgba(28, 118, 143, 0.1);
-  border-radius: 0.3rem;
-}
-
-section#ability div.card#proficient div.card-content-container table td #len80 {
-  border-left: 13.6rem solid #1c768f;
-}
-
-section#ability div.card#proficient div.card-content-container table td #len70 {
-  border-left: 11.9rem solid #1c768f;
-}
-
-section#ability div.card#proficient div.card-content-container table td #len70-2 {
-  border-left: 10.5rem solid #1c768f;
-}
-
-section#ability div.card#proficient div.card-content-container table td #len65 {
-  border-left: 11.05rem solid #1c768f;
-}
-
-section#ability div.card#proficient div.card-content-container table td #len65-2 {
-  border-left: 9.75rem solid #1c768f;
-}
-
-section#ability div.card#proficient div.card-content-container table td #len60 {
-  border-left: 10.2rem solid #1c768f;
+section#ability div.card#learned a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 section#ability div.card#learning {
@@ -268,15 +221,10 @@ section#ability div.card#learning {
 
 section#experience {
   background-color: #032539;
-  height: 30vh;
+  height: 500vh;
 }
 
-section#works {
-  background-color: #fa991c;
-  height: 220vh;
-}
-
-section#works div.card-container {
+section#experience div.card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,24 +236,8 @@ section#works div.card-container {
       flex-wrap: wrap;
 }
 
-section#works div.card-container div.card#working {
-  width: 38vw;
-  height: 30vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 1rem;
-}
-
-section#works div.card-container div.card#completed1,
-section#works div.card-container div.card#completed2 {
+section#experience div.card-container div.card#completed1,
+section#experience div.card-container div.card#completed2 {
   width: 78vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -320,15 +252,32 @@ section#works div.card-container div.card#completed2 {
   padding: 0.25rem 0 0 1.5rem;
 }
 
-section#works div.card-container div.card#completed1 {
-  height: 40vh;
+section#experience div.card-container div.card#completed1 div.content-row,
+section#experience div.card-container div.card#completed2 div.content-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-section#works div.card-container div.card#completed2 {
+section#experience div.card-container div.card#completed1 div.content-card,
+section#experience div.card-container div.card#completed2 div.content-card {
+  margin: 0 0.5rem;
+}
+
+section#experience div.card-container div.card#completed1 div.content,
+section#experience div.card-container div.card#completed2 div.content {
+  margin: 0 0.5rem;
+}
+
+section#experience div.card-container div.card#completed1 {
+  height: 135vh;
+}
+
+section#experience div.card-container div.card#completed2 {
   height: 63vh;
 }
 
-section#works div.card-container div.card-in-card-container {
+section#experience div.card-container div.card-in-card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -342,7 +291,7 @@ section#works div.card-container div.card-in-card-container {
   margin-top: 0.25rem;
 }
 
-section#works div.card-container div.card-in-card-container div.card#paper {
+section#experience div.card-container div.card-in-card-container div.card#paper {
   background-color: #032539;
   width: 72vw;
   height: 13vh;
@@ -350,32 +299,32 @@ section#works div.card-container div.card-in-card-container div.card#paper {
   margin-bottom: 0.25rem;
 }
 
-section#works div.card-container div.card-in-card-container div.card#paper h4 {
+section#experience div.card-container div.card-in-card-container div.card#paper h4 {
   color: #fbf3f2;
   margin: 0.75rem 0 0 1rem;
   font-weight: 500;
   font-size: 1.2rem;
 }
 
-section#works div.card-container div.card-in-card-container div.card#paper p {
+section#experience div.card-container div.card-in-card-container div.card#paper p {
   color: #fa991c;
   margin-left: 1rem;
 }
 
-section#works div.card-container div.card-in-card-container div.card#paper a {
+section#experience div.card-container div.card-in-card-container div.card#paper a {
   width: 1.5rem;
   position: absolute;
   bottom: 0.75rem;
   right: 1.1rem;
 }
 
-section#works div.card-container div.card-in-card-container div.card#paper a i {
+section#experience div.card-container div.card-in-card-container div.card#paper a i {
   color: #fbf3f2;
   font-size: 1.5rem;
 }
 
 section#footer {
-  background-color: #032539;
+  background-color: #fa991c;
   height: 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
