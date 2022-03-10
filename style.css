@@ -116,7 +116,7 @@ h2.section-title {
   font-size: 1.75rem;
   font-weight: 500;
   padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   color: #fbf3f2;
 }
 
@@ -221,7 +221,7 @@ section#ability div.card#learning {
 
 section#experience {
   background-color: #032539;
-  height: 500vh;
+  height: 280vh;
 }
 
 section#experience div.card-container {
@@ -270,11 +270,11 @@ section#experience div.card-container div.card#completed2 div.content {
 }
 
 section#experience div.card-container div.card#completed1 {
-  height: 135vh;
+  height: 118vh;
 }
 
 section#experience div.card-container div.card#completed2 {
-  height: 63vh;
+  height: 136vh;
 }
 
 section#experience div.card-container div.card-in-card-container {

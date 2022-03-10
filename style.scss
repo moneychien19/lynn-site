@@ -91,7 +91,7 @@ h2.section-title {
   font-size: 1.75rem;
   font-weight: 500;
   padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   color: $whiteTheme;
 }
 h3.middle-title {
@@ -165,7 +165,7 @@ section#ability {
 
 section#experience {
   background-color: $darkTheme;
-  height: 500vh;
+  height: 280vh;
   div.card-container {
     display: flex;
     flex-direction: row;
@@ -189,10 +189,10 @@ section#experience {
     }
 
     div.card#completed1 {
-      height: 135vh;
+      height: 118vh;
     }
     div.card#completed2 {
-      height: 63vh;
+      height: 136vh;
     }
     div.card-in-card-container {
       display: flex;
