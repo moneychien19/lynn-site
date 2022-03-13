@@ -221,7 +221,7 @@ section#ability div.card#learning {
 
 section#experience {
   background-color: #032539;
-  height: 67rem;
+  height: 69rem;
 }
 
 section#experience div.card-container {
@@ -239,7 +239,7 @@ section#experience div.card-container {
 section#experience div.card-container div.card#completed1,
 section#experience div.card-container div.card#completed2 {
   width: 78vw;
-  height: 29rem;
+  height: 30rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -165,7 +165,7 @@ section#ability {
 
 section#experience {
   background-color: $darkTheme;
-  height: 67rem;
+  height: 69rem;
   div.card-container {
     display: flex;
     flex-direction: row;
@@ -173,7 +173,7 @@ section#experience {
     div.card#completed1,
     div.card#completed2 {
       width: 78vw;
-      height: 29rem;
+      height: 30rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
