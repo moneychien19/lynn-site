@@ -152,7 +152,7 @@ div.card {
 
 section#about-me {
   background-color: #032539;
-  height: 27rem;
+  height: 26rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,7 +179,7 @@ section#about-me div.p-container {
 
 section#ability {
   background-color: #fa991c;
-  height: 33rem;
+  height: 32rem;
 }
 
 section#ability h2#ability {
@@ -188,7 +188,7 @@ section#ability h2#ability {
 
 section#ability div.card#learned {
   width: 24.65vw;
-  height: 38vh;
+  height: 15rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,7 +221,7 @@ section#ability div.card#learning {
 
 section#experience {
   background-color: #032539;
-  height: 280vh;
+  height: 72rem;
 }
 
 section#experience div.card-container {
@@ -270,11 +270,11 @@ section#experience div.card-container div.card#completed2 div.content {
 }
 
 section#experience div.card-container div.card#completed1 {
-  height: 118vh;
+  height: 32rem;
 }
 
 section#experience div.card-container div.card#completed2 {
-  height: 136vh;
+  height: 32rem;
 }
 
 section#experience div.card-container div.card-in-card-container {
@@ -325,7 +325,7 @@ section#experience div.card-container div.card-in-card-container div.card#paper 
 
 section#footer {
   background-color: #fa991c;
-  height: 4rem;
+  height: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -353,7 +353,7 @@ section#footer ul li {
 }
 
 section#footer ul li a i {
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   color: #fbf3f2;
   font-size: 1.5rem;
 }
