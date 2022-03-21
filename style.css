@@ -65,6 +65,7 @@ section#navbar {
   background-color: #fbf3f2;
   -webkit-box-shadow: 0 4px 2px -2px gray;
           box-shadow: 0 4px 2px -2px gray;
+  z-index: 100;
 }
 
 section#navbar div.navbar-container {
@@ -130,6 +131,12 @@ h3.middle-title {
   margin-left: 6rem;
 }
 
+@media (max-width: 768px) {
+  h3.middle-title {
+    margin-left: 3rem;
+  }
+}
+
 h4.card-title {
   color: #032539;
   text-align: center;
@@ -155,7 +162,6 @@ div.card {
 
 section#about-me {
   background-color: #032539;
-  height: 26rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,6 +172,7 @@ section#about-me {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 2rem;
 }
 
 section#about-me img {
@@ -180,13 +187,38 @@ section#about-me div.p-container {
   text-align: center;
 }
 
+@media (max-width: 1100px) {
+  section#about-me div.p-container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  section#about-me div.p-container {
+    width: 80%;
+  }
+}
+
 section#ability {
   background-color: #fa991c;
-  height: 32rem;
+  padding-bottom: 0.5rem;
 }
 
 section#ability h2#ability {
   color: #fbf3f2;
+}
+
+@media (max-width: 600px) {
+  section#ability div.card-container#learned {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 1rem 0 0 0;
+  }
 }
 
 section#ability div.card#learned {
@@ -204,7 +236,7 @@ section#ability div.card#learned {
           align-items: center;
 }
 
-section#ability div.card#learned a {
+section#ability div.card#learned p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -217,14 +249,45 @@ section#ability div.card#learned a {
           align-items: center;
 }
 
+@media (max-width: 600px) {
+  section#ability div.card#learned {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 375px) {
+  section#ability div.card#learned {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 600px) {
+  section#ability div.half#learned {
+    height: 12rem;
+  }
+}
+
 section#ability div.card#learning {
   width: 24.65vw;
   height: 3rem;
 }
 
+@media (max-width: 600px) {
+  section#ability div.card#learning {
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  section#ability div.card#learning h4 {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+}
+
 section#experience {
   background-color: #032539;
-  height: 69rem;
+  padding-bottom: 0.5rem;
 }
 
 section#experience div.card-container {
@@ -242,7 +305,6 @@ section#experience div.card-container {
 section#experience div.card-container div.card#completed1,
 section#experience div.card-container div.card#completed2 {
   width: 78vw;
-  height: 30rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -253,7 +315,7 @@ section#experience div.card-container div.card#completed2 {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 0.25rem 0 0 1.5rem;
+  padding: 0.25rem 0 1rem 1.5rem;
 }
 
 section#experience div.card-container div.card#completed1 div.content-row,
@@ -268,9 +330,27 @@ section#experience div.card-container div.card#completed2 div.content-card {
   margin: 0 0.5rem;
 }
 
+section#experience div.card-container div.card#completed1 div.content-card#text,
+section#experience div.card-container div.card#completed2 div.content-card#text {
+  width: 40%;
+}
+
+section#experience div.card-container div.card#completed1 div.content-card#video,
+section#experience div.card-container div.card#completed2 div.content-card#video {
+  width: 60%;
+}
+
 section#experience div.card-container div.card#completed1 div.content,
 section#experience div.card-container div.card#completed2 div.content {
   margin: 0 0.5rem;
+}
+
+section#experience div.card-container div.card#completed1 .video-box,
+section#experience div.card-container div.card#completed2 .video-box {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
 }
 
 section#experience div.card-container div.card-in-card-container {
