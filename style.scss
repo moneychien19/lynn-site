@@ -3,6 +3,11 @@
     @content;
   }
 }
+@mixin bigPad {
+  @media (max-width: 950px) {
+    @content;
+  }
+}
 @mixin pad {
   @media (max-width: 768px) {
     @content;
@@ -221,6 +226,11 @@ section#ability {
 section#experience {
   background-color: $darkTheme;
   padding-bottom: 0.5rem;
+  h4#experience {
+    @include bigPad {
+      margin-left: 1rem;
+    }
+  }
   div.card-container {
     display: flex;
     flex-direction: row;
@@ -232,17 +242,42 @@ section#experience {
       flex-direction: column;
       align-items: flex-start;
       padding: 0.25rem 0 1rem 1.5rem;
+      @include bigPad {
+        padding-left: 0;
+      }
       div.content-row {
         display: flex;
+        @include bigPad {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      div.content-row#github {
+        @include bigPad {
+          width: 95%;
+          padding-left: 1.25rem;
+        }
       }
       div.content-card {
         margin: 0 0.5rem;
+        @include bigPad {
+          width: 100%;
+          padding: 0;
+        }
       }
       div.content-card#text {
         width: 40%;
+        @include bigPad {
+          width: 92%;
+          margin: 0;
+        }
       }
       div.content-card#video {
         width: 60%;
+        @include bigPad {
+          width: 92%;
+          margin: 1.5rem 0 0 1rem;
+        }
       }
       div.content {
         margin: 0 0.5rem;

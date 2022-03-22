@@ -290,6 +290,12 @@ section#experience {
   padding-bottom: 0.5rem;
 }
 
+@media (max-width: 950px) {
+  section#experience h4#experience {
+    margin-left: 1rem;
+  }
+}
+
 section#experience div.card-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,6 +324,13 @@ section#experience div.card-container div.card#completed2 {
   padding: 0.25rem 0 1rem 1.5rem;
 }
 
+@media (max-width: 950px) {
+  section#experience div.card-container div.card#completed1,
+  section#experience div.card-container div.card#completed2 {
+    padding-left: 0;
+  }
+}
+
 section#experience div.card-container div.card#completed1 div.content-row,
 section#experience div.card-container div.card#completed2 div.content-row {
   display: -webkit-box;
@@ -325,9 +338,38 @@ section#experience div.card-container div.card#completed2 div.content-row {
   display: flex;
 }
 
+@media (max-width: 950px) {
+  section#experience div.card-container div.card#completed1 div.content-row,
+  section#experience div.card-container div.card#completed2 div.content-row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (max-width: 950px) {
+  section#experience div.card-container div.card#completed1 div.content-row#github,
+  section#experience div.card-container div.card#completed2 div.content-row#github {
+    width: 95%;
+    padding-left: 1.25rem;
+  }
+}
+
 section#experience div.card-container div.card#completed1 div.content-card,
 section#experience div.card-container div.card#completed2 div.content-card {
   margin: 0 0.5rem;
+}
+
+@media (max-width: 950px) {
+  section#experience div.card-container div.card#completed1 div.content-card,
+  section#experience div.card-container div.card#completed2 div.content-card {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 section#experience div.card-container div.card#completed1 div.content-card#text,
@@ -335,9 +377,25 @@ section#experience div.card-container div.card#completed2 div.content-card#text 
   width: 40%;
 }
 
+@media (max-width: 950px) {
+  section#experience div.card-container div.card#completed1 div.content-card#text,
+  section#experience div.card-container div.card#completed2 div.content-card#text {
+    width: 92%;
+    margin: 0;
+  }
+}
+
 section#experience div.card-container div.card#completed1 div.content-card#video,
 section#experience div.card-container div.card#completed2 div.content-card#video {
   width: 60%;
+}
+
+@media (max-width: 950px) {
+  section#experience div.card-container div.card#completed1 div.content-card#video,
+  section#experience div.card-container div.card#completed2 div.content-card#video {
+    width: 92%;
+    margin: 1.5rem 0 0 1rem;
+  }
 }
 
 section#experience div.card-container div.card#completed1 div.content,
