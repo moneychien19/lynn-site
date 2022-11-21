@@ -1,13 +1,9 @@
-import { Drawer, DrawerBody, DrawerContent } from "@chakra-ui/react"
+import { Drawer } from '@mui/material'
 
 export const Sidebar = () => {
   const isOpen = true
   return (
-    <Drawer isOpen={isOpen} placement="right" onClose={() => {}}>
-      <DrawerContent>
-        <DrawerBody>
-          drawer
-        </DrawerBody>
-      </DrawerContent>
+    <Drawer open={isOpen} anchor="right" hideBackdrop>
+      drawer
     </Drawer>)
 }
