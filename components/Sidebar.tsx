@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import { Drawer, Divider } from '@mui/material'
+import { theme } from '../styles/theme'
 import profileImage from '../src/profileImage.jpg'
 
 const articleTitles = ['用 Webpack 打包前端專案', 'Storybook 輕鬆進行 UI 元件管理']
@@ -15,7 +16,7 @@ export const Sidebar = () => {
           alt="Profile Image"
           width={64}
           height={64}
-          style={{borderRadius: '50%'}}
+          style={{ borderRadius: '50%' }}
         />
         <StyledAuthorName>Lynn</StyledAuthorName>
         <StyledAuthorDescription>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam, nulla.</StyledAuthorDescription>
@@ -31,7 +32,7 @@ export const Sidebar = () => {
 
 const StyledDrawer = styled(Drawer)`
   & .MuiDrawer-paper {
-    border-left: 1px solid #c5c5c5;
+    border-left: 1px solid ${theme.palette.grey[500]};
     width: 20rem;
     padding-left: 1.5rem;
   }
@@ -50,7 +51,7 @@ const StyledAuthorName = styled.p`
   margin: 0.5rem 0 0 1rem;
 `
 const StyledAuthorDescription = styled.p`
-  color: #484848;
+  color: ${theme.palette.secondary.main};
   font-size: 1.25rem;
   margin: 1rem 0 0 0.25rem;
 `
@@ -66,15 +67,15 @@ const StyledArticleListTitle = styled.p`
   margin: 0.5rem 0;
 `
 const StyledArticleListDivider = styled(Divider)`
-  color: #c5c5c5;
+  color: ${theme.palette.grey[500]};
   width: 100%;
 `
 const StyledArticleItem = styled.a<{ $isSelected: boolean }>`
-  color: ${props => props.$isSelected ? '#295bdb' : 'black'};
+  color: ${props => props.$isSelected ? theme.palette.primary.main : 'black'};
   line-height: 0.75rem;
   display: inline-block;
   margin-top: 0.75rem;
   &:hover {
-    color: #295bdb;
+    color: ${theme.palette.primary.main};
   }
 `
