@@ -9,7 +9,7 @@ const nowArticleTitle = '用 Webpack 打包前端專案'
 
 export const Sidebar = () => {
   return (
-    <StyledDrawer open anchor="right" hideBackdrop elevation={0}>
+    <StyledDrawer open variant="permanent" anchor="right" hideBackdrop elevation={0}>
       <StyledAuthorContainer>
         <Image
           src={profileImage}
