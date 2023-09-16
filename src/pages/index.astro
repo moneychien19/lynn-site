@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.css";
 import { NavBar } from "../components/Navbar";
+import avatar from "../assets/avatar.jpg";
 ---
 
 <html lang="en">
@@ -13,5 +15,37 @@ import { NavBar } from "../components/Navbar";
   </head>
   <body>
     <NavBar />
+    <div class="container">
+      <Image class="image" src={avatar} alt="avatar" />
+      <div class="text-container">
+        <h1 class="name">Lynn Chien</h1>
+        <p class="introduction">前端工程師</p>
+      </div>
+    </div>
   </body>
+
+  <style>
+    body {
+      position: relative;
+      height: 100vh;
+    }
+    .container {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .image {
+      border-radius: 100%;
+      width: 6rem;
+      height: 6rem;
+    }
+    .name {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  </style>
 </html>
