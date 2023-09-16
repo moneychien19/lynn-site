@@ -1,32 +1,15 @@
 {
-  "name": "lynn-site",
-  "version": "0.1.0",
-  "private": true,
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.14",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.2",
-    "next": "13.0.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-syntax-highlighter": "^15.5.0",
-    "styled-components": "^5.3.6",
-    "typescript": "4.8.4"
-  },
-  "devDependencies": {
-    "@types/react-syntax-highlighter": "^15.5.5",
-    "@types/styled-components": "^5.1.26",
-    "babel-plugin-styled-components": "^2.0.7"
+    "astro": "^3.1.0"
   }
 }
