@@ -1,28 +1,17 @@
 ---
 import { Image } from "astro:assets";
-import "../styles/global.css";
-import { NavBar } from "../components/Navbar";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import avatar from "../assets/avatar.jpg";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>About Me</title>
-  </head>
-  <body>
-    <NavBar />
-    <div class="container">
-      <Image class="image" src={avatar} alt="avatar" />
-      <div class="text-container">
-        <h1 class="name">Lynn Chien</h1>
-        <p class="introduction">前端工程師</p>
-      </div>
+<BaseLayout pageTitle="About Me">
+  <div class="container">
+    <Image class="image" src={avatar} alt="avatar" />
+    <div class="text-container">
+      <h1 class="name">Lynn Chien</h1>
+      <p class="introduction">前端工程師</p>
     </div>
-  </body>
+  </div>
 
   <style>
     body {
@@ -48,4 +37,4 @@ import avatar from "../assets/avatar.jpg";
       font-weight: 500;
     }
   </style>
-</html>
+</BaseLayout>
