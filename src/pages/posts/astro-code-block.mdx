@@ -1,0 +1,96 @@
+---
+layout: "../../layouts/MarkdownPostLayout.astro"
+title: "在 Astro 中設定 MDX Code Block 的樣式"
+pubDate: 2023-09-17
+description: "在 Astro 中設定 MDX Code Block 的樣式"
+image:
+  url: "https://docs.astro.build/assets/full-logo-light.png"
+  alt: "The full Astro logo."
+tags: ["gitlab", "cicd"]
+---
+
+import { Image } from "astro:assets";
+import astroCodeBlock1 from "../../assets/astro-code-block-1.png";
+import astroCodeBlock2 from "../../assets/astro-code-block-2.png";
+
+當我們在 Astro MDX 中寫一段程式碼，那麼它預設會長這樣：
+
+<Image src={astroCodeBlock1} width="800" alt="Code block without any config" />
+
+這個 code block 實在長的太陽春了，我會想對他做這些設定：
+
+- 增加外框和程式碼之間的 padding
+- 使用不同的 highlight 樣式
+- 右上方加上複製按鈕
+
+我們可以先透過 Astro 官方推薦的插件做基本的處理，再加一些客製化的設定。
+
+## astro-expressive-code
+
+`astro-expressive-code` 是一個整合 expressive code 和 Astro 的套件。
+
+### 安裝套件
+
+- 使用 Astro CLI（推薦）
+
+  ```bash
+  # When using npm
+  npx astro add astro-expressive-code
+
+  # When using pnpm
+  pnpm astro add astro-expressive-code
+
+  # When using yarn
+  yarn astro add astro-expressive-code
+  ```
+
+- 也可以自己安裝依賴，並將其引入設定檔中
+
+  ```bash
+  # When using npm
+  npm install astro-expressive-code
+
+  # When using pnpm
+  pnpm install astro-expressive-code
+
+  # When using yarn
+  yarn add astro-expressive-code
+  ```
+
+  <br />
+
+  ```js title="astro.config.mjs"
+  import { defineConfig } from "astro/config";
+  import mdx from "@astrojs/mdx";
+  import astroExpressiveCode from "astro-expressive-code";
+
+  export default defineConfig({
+    // 注意：astroExpressiveCode() 需置於 mdx() 的前方避免報錯
+    integrations: [astroExpressiveCode(), mdx()],
+  });
+  ```
+
+設定完成後可以看到 code block 有如我們想要的那樣加上了 padding 和右上角的複製按鈕。
+
+<Image
+  src={astroCodeBlock2}
+  width="800"
+  alt="Code block with expressive code config"
+/>
+
+`astro-expressive-code` 還提供了一些其他功能，像是標記特定行數、顯示 diff 等等，詳情可以參考[文件](https://github.com/expressive-code/expressive-code/blob/main/packages/%40expressive-code/plugin-text-markers/README.md#usage-in-markdown--mdx-documents)。
+
+### 主題設定
+
+我們可以將想使用的主題設定傳進 `astroExpressiveCode` 裡，就可以達成像本文的 code block 一樣的效果啦！
+
+```js title="astro.config.mjs"
+const astroExpressiveCodeOptions = {
+  theme: "rose-pine-dawn",
+};
+export default defineConfig({
+  integrations: [astroExpressiveCode(astroExpressiveCodeOptions), mdx()],
+});
+```
+
+除了主題之外，你也可以設定其他樣式像是反白的顏色等等，詳情可以參考[文件](https://github.com/expressive-code/expressive-code/blob/main/packages/astro-expressive-code/README.md#configuration)。

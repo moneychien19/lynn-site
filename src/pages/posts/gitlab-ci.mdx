@@ -36,7 +36,7 @@ Job 會由 runner 執行，當 runner 數量夠多時，在同一個 stage 裡�
 有些 job 會產出成果，像是 e2e 測試工具 Cypress 會在測試完成後自動產生螢幕錄影檔，這時就可以在 job 中定義 artifacts，在 job 執行完成後，就會執行一段 Uploading artifacts 的 script，其目的就是將成果檔案上傳至 GitLab Server，最後在頁面的右側就可以看到 Job artifacts 的區域並可以選擇下載。
 
 - 用 **paths** 指定要產出的檔案名稱
-  ```yaml
+  ```yml title=".gitlab-ci.yml"
   e2e-test:
     artifacts:
       paths:
@@ -46,14 +46,14 @@ Job 會由 runner 執行，當 runner 數量夠多時，在同一個 stage 裡�
         - cypress/screenshots/**/*.png
   ```
 - 用 **name** 指定下載下來的檔案名稱（default 為 artifacts.zip）
-  ```yml
+  ```yml title=".gitlab-ci.yml"
   e2e-test:
     artifacts:
       # 取該分支的名稱作為檔名
       name: "$CI_COMMIT_REF_NAME"
   ```
 - 用 **expire_in** 指定 artifacts 的保存期限（default 為 30 天）
-  ```yml
+  ```yml title=".gitlab-ci.yml"
   e2e-test:
     artifacts:
       expire_in: 90 minutes
@@ -61,7 +61,7 @@ Job 會由 runner 執行，當 runner 數量夠多時，在同一個 stage 裡�
       expire_in: never
   ```
 - 用 **when** 指定何時需要上傳檔案（default 為 on_success）
-  ```yml
+  ```yml title=".gitlab-ci.yml"
   e2e-test:
     artifacts:
       when: on_success  # upload artifacts only when the job succeeds
@@ -73,7 +73,7 @@ Job 會由 runner 執行，當 runner 數量夠多時，在同一個 stage 裡�
 
 如果在測試時有包含 coverage，則可以用 regex 設定 coverage 選項，讓 job log 裡出現 coverage 的欄位。當測試通過時，coverage 會同時顯示在 MR 中和 job 的列表中。
 
-```yml
+```yml title=".gitlab-ci.yml"
 test:
 	# for jest (NodeJS)
 	coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
@@ -84,7 +84,7 @@ test:
 cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套件會被 cache 起來。
 
 - 當 **cache:key:files** 裡設定的檔案改變時，才生成新的 key
-  ```yml
+  ```yml title=".gitlab-ci.yml"
   variables:
     # 若沒有找到 cache:key，則會使用一開始設定好的 fallback cache key
     CACHE_FALLBACK_KEY: fallback-key
@@ -103,7 +103,7 @@ cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套
   ```
 - **cache:policy** 代表 cache 的上傳和下載行為，default 為 pull-push，代表 job 開始時會下載現存的 cache，結束時則會重新上傳新的 cache，除此之外還有 pull 和 push 兩種選項
 - **cache:paths** 代表哪些檔案需要被 cache 起來，以前端專案的例子就是 node_modules，Cypress 也可以額外設定 cache
-  ```yml
+  ```yml title=".gitlab-ci.yml"
   variables:
     # for Cypress
     # ref: https://docs.cypress.io/guides/continuous-integration/gitlab-ci#Parallelization
@@ -114,7 +114,7 @@ cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套
       - node_modules
   ```
 - 將一些 job 的 cache 作用 disable
-  ```yml
+  ```yml title=".gitlab-ci.yml"
   deploy:
   	cache: []
   ```
