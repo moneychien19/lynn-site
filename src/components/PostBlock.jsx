@@ -19,6 +19,7 @@ const StyledCard = styled(Card)`
   width: 100%;
   padding: 0.5rem 2rem;
   box-sizing: border-box;
+  margin-bottom: 1rem;
 `;
 const StyledTitle = styled.h1`
   font-size: 1.75rem;
