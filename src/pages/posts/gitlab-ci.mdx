@@ -1,0 +1,127 @@
+---
+layout: "../../layouts/MarkdownPostLayout.astro"
+title: "GitLab CI"
+pubDate: 2023-09-17
+description: "初步認識 GitLab CI -- GitLab 提供的 CI/CD 服務"
+image:
+  url: "https://docs.astro.build/assets/full-logo-light.png"
+  alt: "The full Astro logo."
+tags: ["gitlab", "cicd"]
+---
+
+GitLab CI 是 GitLab 提供的 CI/CD 服務，主要透過  `.gitlab-ci.yml`  設定。
+
+## Pipeline
+
+Pipeline 由 job 和 stage 組成：
+
+- job：一個任務單位
+- stage：定義 job 要執行的階段
+
+Job 會由 runner 執行，當 runner 數量夠多時，在同一個 stage 裡的 job 會被不同的 runner 平行執行。  
+只有當一個 stage 中的所有 job 都成功執行完成後，pipeline 才會移動到下個 stage；只要其中一個 job 出錯，下一個 stage 就不會執行，pipeline 也會提早結束。
+
+典型的 pipeline 可能的組成有：
+
+- stage `build`，包含 job `compile` 或 `build`
+- stage `test`，包含 job `test`
+- stage `deploy`，包含 job `deploy-to-production`
+
+## Keywords
+
+藉由 GitLab CI [官方提供的 keyword](https://docs.gitlab.com/ee/ci/yaml/)，可以達成多樣化的 pipeline 設定。
+
+### Artifacts
+
+有些 job 會產出成果，像是 e2e 測試工具 Cypress 會在測試完成後自動產生螢幕錄影檔，這時就可以在 job 中定義 artifacts，在 job 執行完成後，就會執行一段 Uploading artifacts 的 script，其目的就是將成果檔案上傳至 GitLab Server，最後在頁面的右側就可以看到 Job artifacts 的區域並可以選擇下載。
+
+- 用 **paths** 指定要產出的檔案名稱
+  ```yaml
+  e2e-test:
+    artifacts:
+      paths:
+        # for e2e test, assign video and screenshot path
+        # https://docs.cypress.io/guides/continuous-integration/gitlab-ci
+        - cypress/videos/**/*.mp4
+        - cypress/screenshots/**/*.png
+  ```
+- 用 **name** 指定下載下來的檔案名稱（default 為 artifacts.zip）
+  ```yml
+  e2e-test:
+    artifacts:
+      # 取該分支的名稱作為檔名
+      name: "$CI_COMMIT_REF_NAME"
+  ```
+- 用 **expire_in** 指定 artifacts 的保存期限（default 為 30 天）
+  ```yml
+  e2e-test:
+    artifacts:
+      expire_in: 90 minutes
+      expire_in: 1 day
+      expire_in: never
+  ```
+- 用 **when** 指定何時需要上傳檔案（default 為 on_success）
+  ```yml
+  e2e-test:
+    artifacts:
+      when: on_success  # upload artifacts only when the job succeeds
+      when: on_failure  # upload artifacts only when the job fails
+      when: always      # always upload artifacts
+  ```
+
+### Coverage
+
+如果在測試時有包含 coverage，則可以用 regex 設定 coverage 選項，讓 job log 裡出現 coverage 的欄位。當測試通過時，coverage 會同時顯示在 MR 中和 job 的列表中。
+
+```yml
+test:
+	# for jest (NodeJS)
+	coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+```
+
+### Cache
+
+cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套件會被 cache 起來。
+
+- 當 **cache:key:files** 裡設定的檔案改變時，才生成新的 key
+  ```yml
+  variables:
+    # 若沒有找到 cache:key，則會使用一開始設定好的 fallback cache key
+    CACHE_FALLBACK_KEY: fallback-key
+  cache:
+    key:
+      files:
+        # 只要 yarn.lock 檔案沒有變動，就會一直使用同一份 cache
+        - yarn.lockvariables:
+    # 若沒有找到 cache:key，則會使用一開始設定好的 fallback cache key
+    CACHE_FALLBACK_KEY: fallback-key
+  cache:
+    key:
+      files:
+        # 只要 yarn.lock 檔案沒有變動，就會一直使用同一份 cache
+        - yarn.lock
+  ```
+- **cache:policy** 代表 cache 的上傳和下載行為，default 為 pull-push，代表 job 開始時會下載現存的 cache，結束時則會重新上傳新的 cache，除此之外還有 pull 和 push 兩種選項
+- **cache:paths** 代表哪些檔案需要被 cache 起來，以前端專案的例子就是 node_modules，Cypress 也可以額外設定 cache
+  ```yml
+  variables:
+    # for Cypress
+    # ref: https://docs.cypress.io/guides/continuous-integration/gitlab-ci#Parallelization
+    CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  cache:
+    paths:
+      - cache/Cypress
+      - node_modules
+  ```
+- 將一些 job 的 cache 作用 disable
+  ```yml
+  deploy:
+  	cache: []
+  ```
+
+## GitLab runner
+
+- GitLab Runner is an application that works with GitLab CI/CD to run jobs in a pipeline.
+- 可以使用 [GitLab.com SaaS runner](https://docs.gitlab.com/ee/ci/runners/index.html) 讓 GitLab 幫忙管理機器
+- 如果想要自己管理機器，可以在實體或虛擬機上裝 runner，並主動註冊到 GitLab 上
+- 機器可以設定同時最多有幾個 concurrent，也就是幾條 pipeline 在跑
