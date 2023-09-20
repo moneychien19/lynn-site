@@ -14,4 +14,11 @@ export default defineConfig({
     astroExpressiveCode(astroExpressiveCodeOptions),
     mdx(),
   ],
+  // workaround: fix build error
+  // ref: https://github.com/withastro/astro/issues/7629
+  vite: {
+    ssr: {
+      noExternal: ["react-icons"],
+    },
+  },
 });
