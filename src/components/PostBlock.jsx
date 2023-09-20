@@ -20,6 +20,12 @@ const StyledCard = styled(Card)`
   padding: 0.5rem 2rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
+  &:hover {
+    box-shadow: 2px -2px 4px 0px #4a55a2;
+  }
+  &:active {
+    background-color: #f7f7f7;
+  }
 `;
 const StyledTitle = styled.h1`
   font-size: 1.75rem;
