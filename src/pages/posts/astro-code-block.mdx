@@ -64,6 +64,11 @@ import astroCodeBlock2 from "../../assets/astro-code-block-2.png";
   import mdx from "@astrojs/mdx";
   import astroExpressiveCode from "astro-expressive-code";
 
+  // 在 https://expressive-code.com/guides/themes/ 挑選想要的主題
+  const astroExpressiveCodeOptions = {
+    theme: 'min-light',
+  }
+
   export default defineConfig({
     // 注意：astroExpressiveCode() 需置於 mdx() 的前方避免報錯
     integrations: [astroExpressiveCode(), mdx()],
@@ -71,12 +76,6 @@ import astroCodeBlock2 from "../../assets/astro-code-block-2.png";
   ```
 
 設定完成後可以看到 code block 有如我們想要的那樣加上了 padding 和右上角的複製按鈕。
-
-<Image
-  src={astroCodeBlock2}
-  width="800"
-  alt="Code block with expressive code config"
-/>
 
 `astro-expressive-code` 還提供了一些其他功能，像是標記特定行數、顯示 diff 等等，詳情可以參考[文件](https://github.com/expressive-code/expressive-code/blob/main/packages/%40expressive-code/plugin-text-markers/README.md#usage-in-markdown--mdx-documents)。
 

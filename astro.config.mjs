@@ -1,11 +1,11 @@
-import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
-import mdx from "@astrojs/mdx";
-import astroExpressiveCode from "astro-expressive-code";
+import { defineConfig } from 'astro/config'
+import react from '@astrojs/react'
+import mdx from '@astrojs/mdx'
+import astroExpressiveCode from 'astro-expressive-code'
 
 const astroExpressiveCodeOptions = {
-  theme: "rose-pine-dawn",
-};
+  theme: 'min-light',
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +18,7 @@ export default defineConfig({
   // ref: https://github.com/withastro/astro/issues/7629
   vite: {
     ssr: {
-      noExternal: ["react-icons"],
+      noExternal: ['react-icons'],
     },
   },
-});
+})
