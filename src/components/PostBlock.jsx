@@ -46,6 +46,7 @@ const StyledTextContainer = styled.div`
 `
 const StyledTitle = styled.h1`
   font-size: 1.75rem;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 `;
 const StyledDescription = styled.p`

@@ -6,7 +6,7 @@ export const NavBar = () => {
   return (
     <StyledAppBar position="static">
       <StyledToolbar disableGutters>
-        <StyledBlogTitle>🌟 Lynn's Blog</StyledBlogTitle>
+        <StyledBlogTitle href="/">🌟 Lynn's Blog</StyledBlogTitle>
         <StyledA href="https://github.com/moneychien19" target="_blank">
           <StyledGitHubIcon />
         </StyledA>
@@ -31,8 +31,10 @@ const StyledToolbar = styled(Toolbar)`
     color: black;
   }
 `;
-const StyledBlogTitle = styled.div`
+const StyledBlogTitle = styled.a`
   font-size: 1.25rem;
+  color: black;
+  text-decoration: none;
 `
 const StyledA = styled.a`
   text-transform: none;
