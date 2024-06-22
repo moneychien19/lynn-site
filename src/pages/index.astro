@@ -13,6 +13,9 @@ const allPosts = await Astro.glob("./posts/*.mdx");
           title={post.frontmatter.title}
           content={post.frontmatter.description}
           url={post.url}
+          imageUrl={post.frontmatter.image.url}
+          imageAlt={post.frontmatter.image.alt}
+          tags={post.frontmatter.tags}
         />
       ))
     }
@@ -20,8 +23,10 @@ const allPosts = await Astro.glob("./posts/*.mdx");
 
   <style>
     .container {
-      width: calc(100vw - 20rem);
-      max-width: 50rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 5rem;
     }
   </style>
 </BaseLayout>

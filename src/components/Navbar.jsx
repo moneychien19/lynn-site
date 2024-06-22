@@ -6,6 +6,7 @@ export const NavBar = () => {
   return (
     <StyledAppBar position="static">
       <StyledToolbar disableGutters>
+        <StyledBlogTitle href="/">🌟 Lynn's Blog</StyledBlogTitle>
         <StyledA href="https://github.com/moneychien19" target="_blank">
           <StyledGitHubIcon />
         </StyledA>
@@ -15,27 +16,33 @@ export const NavBar = () => {
 };
 
 const StyledAppBar = styled(AppBar)`
-  background-color: #4a55a2;
+  background-color: white;
   box-shadow: none;
 `;
 const StyledToolbar = styled(Toolbar)`
   &.MuiToolbar-root {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 1rem;
-    padding: 0 1rem;
-    height: 2.5rem;
-    min-height: 2.5rem;
+    padding: 0 2rem;
+    height: 4.75rem;
+    min-height: 4.75rem;
+    color: black;
   }
 `;
-const StyledA = styled.a`
-  color: white;
-  text-transform: none;
-  font-size: 1rem;
+const StyledBlogTitle = styled.a`
+  font-size: 1.25rem;
+  color: black;
   text-decoration: none;
+`
+const StyledA = styled.a`
+  text-transform: none;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
 `;
 const StyledGitHubIcon = styled(BsGithub)`
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
 `;

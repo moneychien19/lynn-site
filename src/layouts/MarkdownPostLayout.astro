@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props;
+import BaseLayout from './BaseLayout.astro'
+const { frontmatter } = Astro.props
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -19,13 +19,16 @@ const { frontmatter } = Astro.props;
     .container {
       max-width: 50rem;
       h1 {
-        color: #4a55a2;
+        font-weight: 500;
       }
       h2 {
         margin-top: 3rem;
       }
       h3 {
         margin-top: 2rem;
+      }
+      a {
+        color: #5a639c;
       }
     }
   </style>

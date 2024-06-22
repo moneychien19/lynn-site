@@ -4,9 +4,9 @@ title: "GitLab CI"
 pubDate: 2023-09-17
 description: "初步認識 GitLab CI -- GitLab 提供的 CI/CD 服務"
 image:
-  url: "https://docs.astro.build/assets/full-logo-light.png"
-  alt: "The full Astro logo."
-tags: ["gitlab", "cicd"]
+  url: "https://images.unsplash.com/photo-1531030874896-fdef6826f2f7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt: "GitLab CI"
+tags: ["GitLab", "CI/CD"]
 ---
 
 GitLab CI 是 GitLab 提供的 CI/CD 服務，主要透過  `.gitlab-ci.yml`  設定。
@@ -52,6 +52,7 @@ Job 會由 runner 執行，當 runner 數量夠多時，在同一個 stage 裡�
       # 取該分支的名稱作為檔名
       name: "$CI_COMMIT_REF_NAME"
   ```
+
 - 用 **expire_in** 指定 artifacts 的保存期限（default 為 30 天）
   ```yml title=".gitlab-ci.yml"
   e2e-test:
@@ -101,6 +102,7 @@ cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套
         # 只要 yarn.lock 檔案沒有變動，就會一直使用同一份 cache
         - yarn.lock
   ```
+
 - **cache:policy** 代表 cache 的上傳和下載行為，default 為 pull-push，代表 job 開始時會下載現存的 cache，結束時則會重新上傳新的 cache，除此之外還有 pull 和 push 兩種選項
 - **cache:paths** 代表哪些檔案需要被 cache 起來，以前端專案的例子就是 node_modules，Cypress 也可以額外設定 cache
   ```yml title=".gitlab-ci.yml"
@@ -121,7 +123,8 @@ cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套
 
 ## GitLab runner
 
-- GitLab Runner is an application that works with GitLab CI/CD to run jobs in a pipeline.
+> GitLab Runner is an application that works with GitLab CI/CD to run jobs in a pipeline.
+
 - 可以使用 [GitLab.com SaaS runner](https://docs.gitlab.com/ee/ci/runners/index.html) 讓 GitLab 幫忙管理機器
 - 如果想要自己管理機器，可以在實體或虛擬機上裝 runner，並主動註冊到 GitLab 上
 - 機器可以設定同時最多有幾個 concurrent，也就是幾條 pipeline 在跑
