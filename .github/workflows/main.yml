@@ -65,3 +65,19 @@ jobs:
         run: npx wait-on 'http-get://localhost:4321'
       - name: Run Cypress tests
         run: npx cypress run
+  
+  build_and_deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: e2e-local
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+      - name: Build project
+        run: npm run build
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: netlify deploy --prod --dir=dist --site=${{ secrets.NETLIFY_SITE_ID }}
