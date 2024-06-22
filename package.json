@@ -25,5 +25,8 @@
     "react-icons": "^4.11.0",
     "sharp": "^0.32.5",
     "vite": "^4.4.9"
+  },
+  "devDependencies": {
+    "cypress": "^13.12.0"
   }
 }
