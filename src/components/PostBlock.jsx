@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import { Card } from "@mui/material";
 import { Tag } from "./Tag"
 
-export const PostBlock = ({ title = '', description = '', url = '', imageUrl = '', imageAlt = '', tags = [] } = {}) => {
+export const PostBlock = ({ title = '', description = '', collection = '', slug = '', imageUrl = '', imageAlt = '', tags = [] } = {}) => {
   return (
-    <StyledA href={url}>
+    <StyledA href={`/${collection}/${slug}`}>
       <StyledCard>
         <StyledImage src={imageUrl} alt={imageAlt} />
         <StyledTextContainer>
@@ -23,8 +23,9 @@ export const PostBlock = ({ title = '', description = '', url = '', imageUrl = '
 };
 PostBlock.propTypes = {
   title: PropTypes.string,
-  content: PropTypes.string,
-  url: PropTypes.string,
+  description: PropTypes.string,
+  collection: PropTypes.string,
+  slug: PropTypes.string,
   imageUrl: PropTypes.string,
   imageAlt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
