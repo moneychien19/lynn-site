@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 import styled from "@emotion/styled";
 import { Card } from "@mui/material";
-import { MdOutlineCollectionsBookmark } from "react-icons/md";
-import { collectionsMapping } from '../models/collectionsMapping';
 import { Tag } from "./Tag"
+import { Collection } from './Collection';
 
 export const PostBlock = ({ title = '', description = '', collection = '', slug = '', imageUrl = '', imageAlt = '', tags = [] } = {}) => {
   return (
@@ -17,10 +16,7 @@ export const PostBlock = ({ title = '', description = '', collection = '', slug 
             <Tag label={tag} />
           ))}
           {collection !== 'posts' && (
-            <StyledCollectionContainer href={`/${collection}`}>
-              <MdOutlineCollectionsBookmark />
-              <span>{collectionsMapping[collection]}</span>
-            </StyledCollectionContainer>
+            <Collection collection={collection} />
           )}
         </StyledTagsAndCollectionContainer>
       </StyledTextContainer>
@@ -69,14 +65,6 @@ const StyledTitle = styled.a`
 const StyledDescription = styled.p`
   margin-top: 0.5rem;
 `;
-const StyledCollectionContainer = styled.a`
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin: 0.5rem 0 0.5rem 0.5rem;
-  color: #666;
-  text-decoration: none;
-`
 const StyledTagsAndCollectionContainer = styled.div`
   display: flex;
   gap: 0.5rem;
