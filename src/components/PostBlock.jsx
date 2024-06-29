@@ -1,17 +1,16 @@
+import PropTypes from 'prop-types'
 import styled from "@emotion/styled";
 import { Card } from "@mui/material";
 import { Tag } from "./Tag"
 
-export const PostBlock = (props) => {
-  const { title, content, url, imageUrl, imageAlt, tags } = props
-
+export const PostBlock = ({ title = '', description = '', url = '', imageUrl = '', imageAlt = '', tags = [] } = {}) => {
   return (
     <StyledA href={url}>
       <StyledCard>
         <StyledImage src={imageUrl} alt={imageAlt} />
         <StyledTextContainer>
           <StyledTitle>{title}</StyledTitle>
-          <StyledDescription>{content}</StyledDescription>
+          <StyledDescription>{description}</StyledDescription>
           <StyledTagsContainer>
             {tags.map(tag => (
               <Tag label={tag} />
@@ -22,6 +21,14 @@ export const PostBlock = (props) => {
     </StyledA>
   );
 };
+PostBlock.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+  url: PropTypes.string,
+  imageUrl: PropTypes.string,
+  imageAlt: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
+}
 
 const StyledA = styled.a`
   text-decoration: none;

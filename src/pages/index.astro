@@ -1,17 +1,17 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { PostBlock } from "../components/PostBlock";
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { PostBlock } from '../components/PostBlock'
 
-const allPosts = await Astro.glob("./posts/*.mdx");
+const allPosts = await Astro.glob('./posts/*.mdx')
 ---
 
 <BaseLayout pageTitle="Lynn's Blog">
   <div class="container">
     {
-      allPosts.map((post) => (
+      (allPosts ?? []).map((post) => (
         <PostBlock
           title={post.frontmatter.title}
-          content={post.frontmatter.description}
+          description={post.frontmatter.description}
           url={post.url}
           imageUrl={post.frontmatter.image.url}
           imageAlt={post.frontmatter.image.alt}
