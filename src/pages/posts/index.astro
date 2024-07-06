@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { PostBlock } from '../../components/PostBlock'
+
+const uncategorized = await getCollection('posts')
+---
+
+<BaseLayout pageTitle="Lynn's Blog">
+  <div class="container">
+    {
+      (uncategorized ?? []).map((post) => (
+        <PostBlock
+          title={post.data.title}
+          description={post.data.description}
+          collection={post.collection}
+          slug={post.slug}
+          imageUrl={post.data.image.url}
+          imageAlt={post.data.image.alt}
+          tags={post.data.tags}
+        />
+      ))
+    }
+  </div>
+</BaseLayout>

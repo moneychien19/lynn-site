@@ -1,32 +1,28 @@
 ---
+import { getCollection } from 'astro:content'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { PostBlock } from '../components/PostBlock'
 
-const allPosts = await Astro.glob('./posts/*.mdx')
+const uncategorizedCollection = await getCollection('posts')
+const tddCollection = await getCollection('tdd')
 ---
 
 <BaseLayout pageTitle="Lynn's Blog">
   <div class="container">
     {
-      (allPosts ?? []).map((post) => (
-        <PostBlock
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
-          url={post.url}
-          imageUrl={post.frontmatter.image.url}
-          imageAlt={post.frontmatter.image.alt}
-          tags={post.frontmatter.tags}
-        />
-      ))
+      [...(uncategorizedCollection ?? []), ...(tddCollection ?? [])].map(
+        (post) => (
+          <PostBlock
+            title={post.data.title}
+            description={post.data.description}
+            collection={post.collection}
+            slug={post.slug}
+            imageUrl={post.data.image.url}
+            imageAlt={post.data.image.alt}
+            tags={post.data.tags}
+          />
+        ),
+      )
     }
   </div>
-
-  <style>
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1rem 5rem;
-    }
-  </style>
 </BaseLayout>

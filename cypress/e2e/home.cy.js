@@ -3,9 +3,9 @@ describe('Hompage', () => {
     cy.visit('/')
     cy.contains("Lynn's Blog")
   })
-  it('click on a post and go to post page', () => {
+  it('go to specific collection page', () => {
     cy.visit('/')
-    cy.get('h1').first().click()
-    cy.url().should('include', '/posts/')
+    cy.get('a#list-item[href="/tdd"]').click()
+    cy.url().should('include', '/tdd')
   })
 })

@@ -1,8 +1,9 @@
 ---
-import "../styles/global.css";
-import { NavBar } from "../components/Navbar";
+import '../styles/global.css'
+import { NavBar } from '../components/Navbar'
+import { Sidebar } from '../components/Sidebar'
 
-const { pageTitle } = Astro.props;
+const { pageTitle } = Astro.props
 ---
 
 <html lang="en">
@@ -15,6 +16,7 @@ const { pageTitle } = Astro.props;
   </head>
   <body>
     <NavBar />
+    <Sidebar pathname={Astro.url.pathname} />
     <div class="content-container">
       <slot />
     </div>
@@ -24,10 +26,11 @@ const { pageTitle } = Astro.props;
     body {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: left;
     }
     .content-container {
-      padding: 3rem 0;
+      padding: 7rem 0;
+      padding-left: 30%;
     }
   </style>
 </html>
