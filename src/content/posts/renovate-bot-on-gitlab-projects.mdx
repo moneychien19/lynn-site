@@ -1,0 +1,145 @@
+---
+layout: "../../layouts/MarkdownPostLayout.astro"
+title: "在 GitLab 專案中使用 Renovate 自動更新套件"
+pubDate: 2024-07-06
+description: "再也不用設鬧鐘提醒自己要檢查套件相依性，在 GitLab 專案中讓 Renovate 幫你自動更新 npm 套件！"
+image:
+  url: "https://repository-images.githubusercontent.com/76734068/dc99233a-1ea5-4037-9482-c0e1d88fd34c"
+  alt: "Renovate Bot"
+tags: ["CI/CD"]
+---
+
+import { Image } from "astro:assets";
+import renovate1 from "../../assets/renovate-1.png";
+import renovate2 from "../../assets/renovate-2.png";
+import renovate3 from "../../assets/renovate-3.png";
+import renovate4 from "../../assets/renovate-4.png";
+
+管理套件的版本更新或許是許多開發者眼中最頭痛的問題之一，將版本鎖上 `latest` 可能會導致不同套件之間的相容問題，但是定期檢查套件的更新又是一件很煩人的事情。Renovate 就是為了解決這個問題而生！
+
+[Renovate](https://github.com/renovatebot/renovate) 是一個可以自動偵測套件更新並發送 Merge Request (Pull Request) 的服務，本文會介紹如何在 GitLab 專案中使用 Renovate，定時發 MR 來更新 npm 套件。
+
+## 設定 Renovate 所需的 access token
+
+Renovate 所需的 access token 分為兩個：
+1. 目標專案的 project access token，讓 Renovate 有權限可以在目標專案中發 MR
+2. GitHub 的 personal access token，讓 Renovate 可以在 GitHub 中讀取套件的更新資訊，因此只需要給予 read 的權限即可
+
+接下來會分兩部分介紹。
+
+### GitLab Project Access token
+
+在想要自動更新的目標專案中，進到 Settings > Access Tokens，新增一個包含 `api`、`read_api` 和 `write_repository` 權限的 token 並取名為 renovate_token，新增後記下此 token。
+<Image src={renovate1} width="800" alt="GitLab Project Access Token" />
+
+### GitHub Personal Access token
+
+在隨便一個 GitHub 帳號中，進到 Settings > Developer settings > Personal access tokens > Tokens (classic) 中，新增一個 token，其中包含幾項 read 權限：`read:packages`、`read:org`、`read:project`，新增後一樣要記下此 token。
+
+## 建立 Renovate Host
+
+首先我們需要先建立一個新的 repo 來 host Renovate Bot，並在專案中設定 Renovate 的執行步驟。
+
+### 在 GitLab 上建立 Renovate Bot 專案
+
+在 GitLab 上建立一個新的 repo 並取名 `renovate-bot`，在這個 repo 中只需要簡單的 node 環境和安裝好 Renovate 即可
+
+```bash
+npm init
+npm install renovate
+```
+
+### 設定 Pipeline Schedule 定期執行更新任務
+
+首先我們需要將剛剛生成的兩個 access token 加入到 GitLab 的 CI/CD Variables 中  
+
+進到 `renovate-bot` 專案中的 Settings > CI/CD > Variables，新增兩個變數：
+- `RENOVATE_TOKEN`：剛剛生成的 GitLab Project Access token
+- `GITHUB_COM_TOKEN`：剛剛生成的 GitHub Personal Access token
+
+<Image src={renovate2} width="800" alt="Renovate Variables Setting" />
+
+接著在專案中建立 `.gitlab-ci.yml` 檔案，並運用以上兩個 CI/CD Variables 來設定 Renovate 的執行步驟
+
+```yml title=".gitlab-ci.yml"
+image: node:latest
+
+variables:
+  RENOVATE_TOKEN: $RENOVATE_TOKEN
+  GITHUB_COM_TOKEN: $GITHUB_COM_TOKEN
+
+check_deps:
+  script:
+    - npm i
+    - npm run check-dependencies
+```
+
+如果專案中沒有 `check-dependencies` 的 script，記得先將該 script 加入 `package.json` 中！
+
+```json title="package.json"
+{
+  "scripts": {
+    "check-dependencies": "renovate"
+  }
+}
+```
+
+接下來就是最客製化的一步了！Renovate 官方提供很多[設定選項](https://docs.renovatebot.com/configuration-options/)，可以依照專案的需求來設定，只要在專案下的 `config.js` 中加入想要的設定即可。
+
+在以下的 `config.js` 中，我設定了在 `your-target-repo` 中禁止更新 major 版本，並且開啟了 GitLab 的自動合併功能。  
+要直接使用這個範例的設定，只要修改 `endpoint` 和 `repositories` 的值就可以了。
+
+```js title="config.js"
+module.exports = {
+  platform: 'gitlab',
+  endpoint: 'https://your.gitlab.com/api/v4/',
+  gitLabAutomerge: true,
+  onboardingConfig: {
+    extends: ['config:base'],
+  },
+  repositories: ['your-target-repo'],
+  packageRules: [
+    {
+      matchUpdateTypes: ['major'],
+      enabled: false,
+    },
+  ],
+}
+```
+
+在這邊可以只做基本的設定，這個設定會套用到所有被指定的 repo 中，如果想要針對不同的 repo 做不同的設定，待會在個別 repo 中我們也可以再做單獨的設定。
+
+在這個步驟的最後，我們回到 GitLab 設定定期執行的 pipeline，進到 `renovate-bot` 專案中的 Build > Pipeline Schedules，新增一個 schedule。  
+以我下圖的設定為例，我使用 cron expression 設定每週一、三的早上 10 點執行任務，`renovate-bot` 這個專案會在指定時間開始執行 `.gitlab-ci.yml` 中的 job。
+
+<Image src={renovate3} width="800" alt="Scheduled Pipeline" />
+
+## 見證奇蹟的時刻
+
+等到第一次 pipeline 執行，Renovate 會在目標專案中發第一個 onboarding MR，這就代表有成功串通 Renovate 的機制了，但是還需要在目標專案做一些設定才行。
+
+<Image src={renovate4} width="800" alt="Renovate Onboarding MR" />
+
+我們將這個分支 pull 下來看看，會看到 `renovate_token` 生了一個 commit 出來，裡面新增了 `renovate.json` 這個檔案，我們可以直接在這個分支中修改它。  
+像我就修改成了以下的設定，限制 Renovate 每小時只發 3 個 MR，並且指定了 assignee 等等。如果這時候不修改檔案，就會直接套用剛剛在 `renovate-bot` 中設定的 `config.js`。
+
+```json title="renovate.json"
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "prHourlyLimit": 3,
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "assignees": ["@lynn.chien"]
+}
+```
+
+將新的設定 push 上 GitLab 並 merge 這個 onboarding MR，就算完成 Renovate 在這個專案的設定啦！之後每到設定好執行的時間點，就可以看到自動發出的 MR 躺在你的 MR 列表中！  
+
+## 結語
+
+Renovate 不只支援 npm 套件的更新，在[官方文件](https://docs.renovatebot.com/javascript/)中還有寫到其他語言的支援，像是 Python、Ruby、Golang 等等。  
+除此之外，Renovate 對於自動更新套件的機制也有很多設定可以選擇，趕快導入 Renovate，減輕對於套件更新的煩惱吧！
