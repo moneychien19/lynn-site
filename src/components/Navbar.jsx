@@ -18,6 +18,7 @@ export const NavBar = () => {
 const StyledAppBar = styled(AppBar)`
   background-color: white;
   box-shadow: none;
+  position: fixed;
 `;
 const StyledToolbar = styled(Toolbar)`
   &.MuiToolbar-root {
