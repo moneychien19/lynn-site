@@ -11,7 +11,7 @@ export const Sidebar = ({ pathname }) => {
   return (
     <StyledDrawer variant="permanent" anchor="left">
       <StyledList>
-        <StyledListItem href="/" $isFocus={isFocus("/")}>所有文章</StyledListItem>
+        <StyledListItem id="list-item" href="/" $isFocus={isFocus("/")}>所有文章</StyledListItem>
         
         <StyledDivider />
         <StyledSubTitle>
@@ -19,7 +19,7 @@ export const Sidebar = ({ pathname }) => {
           Collections
         </StyledSubTitle>
         {Object.entries(collectionsMapping).map(([key, value]) => (
-          <StyledListItem key={key} href={`/${key}`} $isFocus={isFocus(`/${key}`)}>{value}</StyledListItem>
+          <StyledListItem id="list-item" key={key} href={`/${key}`} $isFocus={isFocus(`/${key}`)}>{value}</StyledListItem>
         ))}
       </StyledList>
     </StyledDrawer>
