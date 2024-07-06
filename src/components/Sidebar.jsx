@@ -6,7 +6,6 @@ import { collectionsMapping } from '../models/collectionsMapping'
 import { primaryColor, neutralColor } from '../theme';
 
 export const Sidebar = ({ pathname }) => {
-  console.log("%c 🧟‍♂️: Sidebar -> pathname ", "font-size:16px;background-color:#99c72a;color:white;", pathname)
   const isFocus = path => {
     if (path === '/') return pathname === path
     return pathname.includes(path)
