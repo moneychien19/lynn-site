@@ -1,19 +1,19 @@
 ---
-layout: "../../layouts/MarkdownPostLayout.astro"
-title: "在 GitLab 專案中使用 Renovate 自動更新套件"
+layout: '../../layouts/MarkdownPostLayout.astro'
+title: '在 GitLab 專案中使用 Renovate 自動更新套件'
 pubDate: 2024-07-06
-description: "再也不用設鬧鐘提醒自己要檢查套件相依性，在 GitLab 專案中讓 Renovate 幫你自動更新 npm 套件！"
+description: '再也不用設鬧鐘提醒自己要檢查套件相依性，在 GitLab 專案中讓 Renovate 幫你自動更新 npm 套件！'
 image:
-  url: "https://repository-images.githubusercontent.com/76734068/dc99233a-1ea5-4037-9482-c0e1d88fd34c"
-  alt: "Renovate Bot"
-tags: ["CI/CD"]
+  url: 'https://repository-images.githubusercontent.com/76734068/dc99233a-1ea5-4037-9482-c0e1d88fd34c'
+  alt: 'Renovate Bot'
+tags: ['CI/CD']
 ---
 
-import { Image } from "astro:assets";
-import renovate1 from "../../assets/renovate-1.png";
-import renovate2 from "../../assets/renovate-2.png";
-import renovate3 from "../../assets/renovate-3.png";
-import renovate4 from "../../assets/renovate-4.png";
+import { Image } from 'astro:assets'
+import renovate1 from '../../assets/renovate-1.png'
+import renovate2 from '../../assets/renovate-2.png'
+import renovate3 from '../../assets/renovate-3.png'
+import renovate4 from '../../assets/renovate-4.png'
 
 管理套件的版本更新或許是許多開發者眼中最頭痛的問題之一，將版本鎖上 `latest` 可能會導致不同套件之間的相容問題，但是定期檢查套件的更新又是一件很煩人的事情。Renovate 就是為了解決這個問題而生！
 
@@ -22,6 +22,7 @@ import renovate4 from "../../assets/renovate-4.png";
 ## 設定 Renovate 所需的 access token
 
 Renovate 所需的 access token 分為兩個：
+
 1. 目標專案的 project access token，讓 Renovate 有權限可以在目標專案中發 MR
 2. GitHub 的 personal access token，讓 Renovate 可以在 GitHub 中讀取套件的更新資訊，因此只需要給予 read 的權限即可
 
@@ -30,6 +31,7 @@ Renovate 所需的 access token 分為兩個：
 ### GitLab Project Access token
 
 在想要自動更新的目標專案中，進到 Settings > Access Tokens，新增一個包含 `api`、`read_api` 和 `write_repository` 權限的 token 並取名為 renovate_token，新增後記下此 token。
+
 <Image src={renovate1} width="800" alt="GitLab Project Access Token" />
 
 ### GitHub Personal Access token
@@ -51,9 +53,10 @@ npm install renovate
 
 ### 設定 Pipeline Schedule 定期執行更新任務
 
-首先我們需要將剛剛生成的兩個 access token 加入到 GitLab 的 CI/CD Variables 中  
+首先我們需要將剛剛生成的兩個 access token 加入到 GitLab 的 CI/CD Variables 中
 
 進到 `renovate-bot` 專案中的 Settings > CI/CD > Variables，新增兩個變數：
+
 - `RENOVATE_TOKEN`：剛剛生成的 GitLab Project Access token
 - `GITHUB_COM_TOKEN`：剛剛生成的 GitHub Personal Access token
 
@@ -126,9 +129,7 @@ module.exports = {
 ```json title="renovate.json"
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "prHourlyLimit": 3,
   "lockFileMaintenance": {
     "enabled": true
@@ -137,7 +138,7 @@ module.exports = {
 }
 ```
 
-將新的設定 push 上 GitLab 並 merge 這個 onboarding MR，就算完成 Renovate 在這個專案的設定啦！之後每到設定好執行的時間點，就可以看到自動發出的 MR 躺在你的 MR 列表中！  
+將新的設定 push 上 GitLab 並 merge 這個 onboarding MR，就算完成 Renovate 在這個專案的設定啦！之後每到設定好執行的時間點，就可以看到自動發出的 MR 躺在你的 MR 列表中！
 
 ## 結語
 

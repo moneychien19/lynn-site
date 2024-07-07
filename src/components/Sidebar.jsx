@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { Drawer, Divider } from "@mui/material"
-import { MdOutlineCollectionsBookmark } from "react-icons/md";
+import { Drawer, Divider } from '@mui/material'
+import { MdOutlineCollectionsBookmark } from 'react-icons/md'
 import { collectionsMapping } from '../models/collectionsMapping'
-import { primaryColor, neutralColor } from '../theme';
+import { primaryColor, neutralColor } from '../theme'
 
 export const Sidebar = ({ pathname }) => {
   const isFocus = path => {
@@ -14,22 +14,26 @@ export const Sidebar = ({ pathname }) => {
   return (
     <StyledDrawer variant="permanent" anchor="left">
       <StyledList>
-        <StyledListItem id="list-item" href="/" $isFocus={isFocus("/")}>所有文章</StyledListItem>
-        
+        <StyledListItem id="list-item" href="/" $isFocus={isFocus('/')}>
+          所有文章
+        </StyledListItem>
+
         <StyledDivider />
         <StyledSubTitle>
           <MdOutlineCollectionsBookmark />
           Collections
         </StyledSubTitle>
         {Object.entries(collectionsMapping).map(([key, value]) => (
-          <StyledListItem id="list-item" key={key} href={`/${key}`} $isFocus={isFocus(`/${key}`)}>{value}</StyledListItem>
+          <StyledListItem id="list-item" key={key} href={`/${key}`} $isFocus={isFocus(`/${key}`)}>
+            {value}
+          </StyledListItem>
         ))}
       </StyledList>
     </StyledDrawer>
   )
 }
 Sidebar.propTypes = {
-  pathname: PropTypes.string
+  pathname: PropTypes.string,
 }
 
 const StyledDrawer = styled(Drawer)`
@@ -63,12 +67,12 @@ const StyledListItem = styled.a`
   cursor: pointer;
   display: block;
   padding-left: 1rem;
-  background-color: ${props => props.$isFocus ? primaryColor[50] : primaryColor[0]};
+  background-color: ${props => (props.$isFocus ? primaryColor[50] : primaryColor[0])};
   color: ${neutralColor[950]};
   border-radius: 0.25rem;
   height: 2rem;
   line-height: 2rem;
   &:hover {
-    background-color: ${props => props.$isFocus ? primaryColor[50] : neutralColor[100]};
+    background-color: ${props => (props.$isFocus ? primaryColor[50] : neutralColor[100])};
   }
 `
