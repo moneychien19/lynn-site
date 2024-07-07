@@ -21,7 +21,7 @@ export const PostBlock = ({
         <StyledDescription>{description}</StyledDescription>
         <StyledTagsAndCollectionContainer>
           {tags.map(tag => (
-            <Tag label={tag} />
+            <Tag key={tag} label={tag} />
           ))}
           {collection !== 'posts' && <Collection collection={collection} />}
         </StyledTagsAndCollectionContainer>

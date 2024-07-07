@@ -6,7 +6,7 @@ export const NavBar = () => {
   return (
     <StyledAppBar position="static">
       <StyledToolbar disableGutters>
-        <StyledBlogTitle href="/">🌟 Lynn's Blog</StyledBlogTitle>
+        <StyledBlogTitle href="/">🌟 Lynn&apos;s Blog</StyledBlogTitle>
         <StyledA href="https://github.com/moneychien19" target="_blank">
           <StyledGitHubIcon />
         </StyledA>
