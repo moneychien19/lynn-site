@@ -1,12 +1,12 @@
 ---
-layout: "../../layouts/MarkdownPostLayout.astro"
-title: "GitLab CI"
+layout: '../../layouts/MarkdownPostLayout.astro'
+title: 'GitLab CI'
 pubDate: 2023-09-17
-description: "初步認識 GitLab CI -- GitLab 提供的 CI/CD 服務"
+description: '初步認識 GitLab CI -- GitLab 提供的 CI/CD 服務'
 image:
-  url: "https://images.unsplash.com/photo-1531030874896-fdef6826f2f7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  alt: "GitLab CI"
-tags: ["GitLab", "CI/CD"]
+  url: 'https://images.unsplash.com/photo-1531030874896-fdef6826f2f7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  alt: 'GitLab CI'
+tags: ['GitLab', 'CI/CD']
 ---
 
 GitLab CI 是 GitLab 提供的 CI/CD 服務，主要透過  `.gitlab-ci.yml`  設定。
@@ -46,11 +46,12 @@ Job 會由 runner 執行，當 runner 數量夠多時，在同一個 stage 裡�
         - cypress/screenshots/**/*.png
   ```
 - 用 **name** 指定下載下來的檔案名稱（default 為 artifacts.zip）
+
   ```yml title=".gitlab-ci.yml"
   e2e-test:
     artifacts:
       # 取該分支的名稱作為檔名
-      name: "$CI_COMMIT_REF_NAME"
+      name: '$CI_COMMIT_REF_NAME'
   ```
 
 - 用 **expire_in** 指定 artifacts 的保存期限（default 為 30 天）
@@ -85,6 +86,7 @@ test:
 cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套件會被 cache 起來。
 
 - 當 **cache:key:files** 裡設定的檔案改變時，才生成新的 key
+
   ```yml title=".gitlab-ci.yml"
   variables:
     # 若沒有找到 cache:key，則會使用一開始設定好的 fallback cache key
@@ -109,7 +111,7 @@ cache 的作用比較像是 dependency，諸如安裝在 GitLab runner 上的套
   variables:
     # for Cypress
     # ref: https://docs.cypress.io/guides/continuous-integration/gitlab-ci#Parallelization
-    CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+    CYPRESS_CACHE_FOLDER: '$CI_PROJECT_DIR/cache/Cypress'
   cache:
     paths:
       - cache/Cypress

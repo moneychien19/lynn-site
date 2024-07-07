@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { AppBar, Toolbar } from "@mui/material";
-import { BsGithub } from "react-icons/bs";
+import styled from '@emotion/styled'
+import { AppBar, Toolbar } from '@mui/material'
+import { BsGithub } from 'react-icons/bs'
 
 export const NavBar = () => {
   return (
@@ -12,14 +12,14 @@ export const NavBar = () => {
         </StyledA>
       </StyledToolbar>
     </StyledAppBar>
-  );
-};
+  )
+}
 
 const StyledAppBar = styled(AppBar)`
   background-color: white;
   box-shadow: none;
   position: fixed;
-`;
+`
 const StyledToolbar = styled(Toolbar)`
   &.MuiToolbar-root {
     display: flex;
@@ -31,7 +31,7 @@ const StyledToolbar = styled(Toolbar)`
     min-height: 4.75rem;
     color: black;
   }
-`;
+`
 const StyledBlogTitle = styled.a`
   font-size: 1.25rem;
   color: black;
@@ -42,8 +42,8 @@ const StyledA = styled.a`
   font-size: 1.5rem;
   text-decoration: none;
   color: black;
-`;
+`
 const StyledGitHubIcon = styled(BsGithub)`
   width: 1.5rem;
   height: 1.5rem;
-`;
+`

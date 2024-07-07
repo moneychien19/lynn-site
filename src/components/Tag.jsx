@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
-import { Chip } from "@mui/material"
+import styled from '@emotion/styled'
+import { Chip } from '@mui/material'
 
-export const Tag = (props) => {
-  const {label} = props
+export const Tag = props => {
+  const { label } = props
 
   return <StyledChip label={label} />
 }

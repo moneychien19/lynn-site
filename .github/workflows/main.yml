@@ -35,7 +35,7 @@ jobs:
     needs: prepare-dependencies
     strategy:
       matrix:
-        container: 
+        container:
           - cypress/base:20.12.0
     steps:
       - name: Checkout code
@@ -65,7 +65,7 @@ jobs:
         run: npx wait-on 'http-get://localhost:4321'
       - name: Run Cypress tests
         run: npx cypress run
-  
+
   build_and_deploy:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest

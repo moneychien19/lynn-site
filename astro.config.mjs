@@ -9,11 +9,7 @@ const astroExpressiveCodeOptions = {
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react(),
-    astroExpressiveCode(astroExpressiveCodeOptions),
-    mdx(),
-  ],
+  integrations: [react(), astroExpressiveCode(astroExpressiveCodeOptions), mdx()],
   // workaround: fix build error
   // ref: https://github.com/withastro/astro/issues/7629
   vite: {
