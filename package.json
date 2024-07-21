@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^1.1.0",
+    "@astrojs/partytown": "^2.1.1",
     "@astrojs/react": "^3.0.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
