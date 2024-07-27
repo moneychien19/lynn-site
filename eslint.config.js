@@ -1,6 +1,7 @@
 import globals from 'globals'
 import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
+import pluginCypress from 'eslint-plugin-cypress/flat'
 import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js'
 
 export default [
@@ -9,6 +10,7 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  pluginCypress.configs.recommended,
   pluginReactConfig,
   {
     rules: {
